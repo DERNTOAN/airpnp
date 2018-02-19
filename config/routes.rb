@@ -1,32 +1,5 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-  get 'users/show'
 
-  get 'users/new'
-
-  get 'users/create'
-
-  get 'users/update'
-
-  get 'users/edit'
-
-  get 'bookings/new'
-
-  get 'bookings/create'
-
-  get 'bathrooms/index'
-
-  get 'bathrooms/show'
-
-  get 'bathrooms/new'
-
-  get 'bathrooms/update'
-
-  get 'bathrooms/create'
-
-  get 'bathrooms/destroy'
-=======
->>>>>>> master
 
   resources :bathrooms, only: [:new, :create, :show, :index] do
     resources :bookings, only: [:new, :create, :show, :index]
