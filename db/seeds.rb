@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 10.times do
   name = Faker::HarryPotter.character.split
   first_name = name.shift
@@ -14,7 +15,31 @@
   gender = ["male", "female", "other"].sample
   age = (13..70).to_a.sample
   User.create(first_name: first_name, last_name: last_name, email: email, password: password, gender: gender, age: age)
+end
 
+10.times do
+  name = Faker::HarryPotter.character.split
+  first_name = name.shift
+  last_name = name.join(" ")
+  email = "#{first_name}@#{name.join("_")}.com"
+  password = "password"
+  gender = ["male", "female", "other"].sample
+  age = (13..70).to_a.sample
+  user = User.create(first_name: first_name, last_name: last_name, email: email, password: password, gender: gender, age: age)
+  address= Faker::Address.street_address
+  city = Faker::Address.city #=> "Imogeneborough"
+  plz = (10000..10999).to_a.sample.to_s
+  description = Faker::Lorem.paragraph
+  price = (1..8).to_a.map { |n| n * 25}.sample
+  handicapped = [true, false].sample
+  style = ["western", "turkish", "japanese"]
+  toilet_paper = (1..5).to_a.sample
+  wipe = [true, false].sample
+  baby = [true, false].sample
+  bidet = [true, false].sample
+  Bathroom.create(address: address, description: description, price: price, handicapped: handicapped, style: style, toilet_paper: toilet_paper, wipes: wipes, baby: baby, bidet: bidet, user: user)
+
+end
 # create fake bathrooms
 
 
