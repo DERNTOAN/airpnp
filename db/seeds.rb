@@ -14,7 +14,8 @@
   password = "password"
   gender = ["male", "female", "other"].sample
   age = (13..70).to_a.sample
-  User.create(first_name: first_name, last_name: last_name, email: email, password: password, gender: gender, age: age)
+  user = User.create(first_name: first_name, last_name: last_name, email: email, password: password, gender: gender, age: age)
+  user.remote_photo_url = Faker::Avatar.image
 end
 
 10.times do
