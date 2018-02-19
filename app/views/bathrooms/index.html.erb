@@ -1,2 +1,23 @@
-<h1>Bathrooms#index</h1>
-<p>Find me in app/views/bathrooms/index.html.erb</p>
+<h1>Availiable Bathrooms</h1>
+
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <% @bathrooms.each do |bathroom| %>
+      <div class="col-xs-12 col-sm-4">
+          <div class="card-description">
+            <h2>Address: <%= link_to bathroom.address, bathroom_path(bathroom) %></h2>
+
+
+
+        </div>
+      </div>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+
+

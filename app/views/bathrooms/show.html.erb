@@ -1,2 +1,11 @@
-<h1>Bathrooms#show</h1>
-<p>Find me in app/views/bathrooms/show.html.erb</p>
+<h2>Address: <%= @bathroom.address %></h2>
+<p>Handicapped suited? <%= @bathroom.handicapped %></p>
+<p>Style: <%= @bathroom.style %></p>
+<p>Toilet Paper Layer: <%= @bathroom.toilet_paper %></p>
+<p>Wipes Availiable: <%= @bathroom.wipes %></p>
+<p>Baby suited? <%= @bathroom.baby %></p>
+<p>Bidet Availiable? <%= @bathroom.bidet %></p>
+
+<%= link_to "Go Back", bathrooms_path %>
+
+
