@@ -9,12 +9,15 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user_id = current_user.id
     @booking.save
+    redirect_to bathroom_bookings_path
   end
 
   def index
+    @bookings = Booking.where("bathroom_id = #{params[:bathroom_id]}")
   end
 
   def show
+    @booking = Booking.find(params[:id])
   end
 
   private

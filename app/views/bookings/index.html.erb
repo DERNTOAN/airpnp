@@ -1,0 +1,7 @@
+<ul>
+<% @bookings.each do |booking| %>
+  <%= booking.bathroom.address %>
+  <%= booking.user.email %>
+  <%= link_to "details", bathroom_booking_path(booking.bathroom, booking) %>
+<% end %>
+  </ul>
