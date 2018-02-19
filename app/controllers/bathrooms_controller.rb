@@ -1,6 +1,6 @@
 class BathroomsController < ApplicationController
   def index
-    @bathroom = Bathroom.all
+    @bathrooms = Bathroom.all
   end
 
   def show
