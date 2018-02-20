@@ -1,0 +1,20 @@
+.booking-show-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-template-rows:1fr 1fr;
+  grid-template-areas:
+  "info guest"
+  "info host";
+
+  .booking-show-info{
+    grid-area: info;
+  }
+
+  .booking-show-host{
+    grid-area: host;
+  }
+
+  .booking-show-guest{
+    grid-area: guest;
+  }
+}
