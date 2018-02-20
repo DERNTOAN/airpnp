@@ -105,7 +105,7 @@ end
   email = "castellanton@gmail.com"
   password = "123456"
   gender = "male"
-  age = 25
+  age = 29
   user = User.create(first_name: first_name, last_name: last_name, email: email, password: password, gender: gender, age: age)
 
 
