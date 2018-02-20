@@ -3,10 +3,13 @@
     <%= simple_form_for @bathroom do |f| %>
       <%= f.input :title, placeholder: "Enter a Tagline" %>
       <%= f.input :address, placeholder: "Streetname and number" %>
-      <%= f.input :plz %>
+      <%= f.input :plz, as: :integer%>
       <%= f.input :city %>
       <%= f.input :description, placeholder: "Further describe your bathroom", as: :text %>
-      <%= f.input :price, placeholder: "Default price is 0,50€", as: :integer, required: false %>
+      <%= f.input :style, collection: ["western", "turkish", "japanese"], required: false %>
+      <%= f.input :price, placeholder: "in cents e.g 5€ = 500", as: :integer %>
+      <%= f.input :handicapped, label: "Wheelchair accessible?", as: :boolean, required: false %>
+      <%= f.input :toilet_paper, label: "How many plies does your toilet paper have?", collection: 1..5, required: false %>
       <%= f.input :wipes, label: "Wetwipes?", as: :boolean, required: false %>
       <%= f.input :baby, label: "Diaper-changing table?", as: :boolean, required: false %>
       <%= f.input :bidet, label: "Bidet?", as: :boolean, required: false %>
