@@ -17,6 +17,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'faker'
+gem 'gmaps4rails'
 
 gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
