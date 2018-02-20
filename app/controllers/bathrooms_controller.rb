@@ -18,6 +18,7 @@ class BathroomsController < ApplicationController
 
   def create
     @bathroom = Bathroom.new(bathroom_params)
+    @bathroom.user = current_user
     authorize @bathroom
     if @bathroom.save
       redirect_to bathroom_path(@bathroom)
@@ -37,7 +38,7 @@ class BathroomsController < ApplicationController
 
   private
   def bathroom_params
-    params.require(:bathroom).permit(:address ,:description, :price,:photo, :photo_cache, :handicapped, :style, :toilet_paper, :wipes, :baby, :bidet, :user_id)
+    params.require(:bathroom).permit(:address , :plz, :city, :title, :description, :price, :photo, :photo_cache, :handicapped, :style, :toilet_paper, :wipes, :baby, :bidet, :user_id)
   end
 end
 
