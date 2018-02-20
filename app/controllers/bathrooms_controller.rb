@@ -2,20 +2,23 @@ class BathroomsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    @bathrooms = Bathroom.all
+    @bathrooms = policy_scope(Bathroom)
   end
 
   def show
     @bathroom = Bathroom.find(params[:id])
     @user = User.new
+    authorize @bathroom
   end
 
   def new
     @bathroom = Bathroom.new
+    authorize @bathroom
   end
 
   def create
     @bathroom = Bathroom.new(bathroom_params)
+    authorize @bathroom
     if @bathroom.save
       redirect_to bathroom_path(@bathroom)
     else
