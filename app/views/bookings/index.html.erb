@@ -1,7 +1,30 @@
-<ul>
-  <% @bookings.each do |booking| %>
-  <%= booking.bathroom.address %>
-  <%= booking.user.email %>
-  <%= link_to "details", bathroom_booking_path(booking.bathroom, booking) %>
-  <% end %>
-</ul>
+
+<div class="wrapper">
+  <div class="container bookings-index">
+    <h1>Shit stats</h1>
+
+    <ul>
+      <% @bookings.each do |booking| %>
+      <li class= "listing">
+<%= cl_image_tag booking.user.photo, class: "avatar" %>
+        <div class="listing-name">
+<h3>name</h3>
+        </div>
+
+<div class="listing-time"></div>
+<p>time</p>
+
+<div class="listing-status">
+
+<p>status</p>
+</div>
+
+      </li>
+      <%= booking.bathroom.address %>
+      <%= booking.user.email %>
+      <%= link_to "details", bathroom_booking_path(booking.bathroom, booking) %>
+      <% end %>
+    </ul>
+
+  </div>
+</div>
