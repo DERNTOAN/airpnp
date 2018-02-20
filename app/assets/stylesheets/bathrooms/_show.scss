@@ -1,0 +1,42 @@
+
+.show-bathroom {
+  display: grid;
+  margin-top: 20px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+
+  "infos photo"
+  "infos map";
+
+
+  justify-items: center;
+  align-items: center;
+
+  .bathroom-info {
+    grid-area: infos;
+  }
+
+  .bathroom-photo {
+    grid-area: photo;
+  }
+
+  .bathroom-map {
+    grid-area: map;
+    background-color: grey;
+  }
+  .title {
+    grid-area: photo;
+
+  }
+}
+
+.btn-primary {
+  color: white;
+  margin: 5px;
+
+}
+
+.avatar-image {
+  border-radius: 50%;
+}
