@@ -85,7 +85,7 @@ end
   first_name = "Nicholas"
   last_name = "Utikal"
   email = "nicholasutikal@gmail.com"
-  password = "1234"
+  password = "123456"
   gender = "male"
   age = 26
   user = User.create(first_name: first_name, last_name: last_name, email: email, password: password, gender: gender, age: age)
@@ -103,7 +103,7 @@ end
   first_name = "Anton"
   last_name = "Castell"
   email = "castellanton@gmail.com"
-  password = "1234"
+  password = "123456"
   gender = "male"
   age = 25
   user = User.create(first_name: first_name, last_name: last_name, email: email, password: password, gender: gender, age: age)
