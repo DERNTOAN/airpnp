@@ -8,6 +8,7 @@ class Bathroom < ApplicationRecord
   validates :city, presence: true
   validates :photo, presence: true
   validates :price, presence: true
+  validates :user, presence: :true
 
   validates :description, presence: true
 end
