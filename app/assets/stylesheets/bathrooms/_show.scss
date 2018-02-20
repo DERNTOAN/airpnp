@@ -15,6 +15,7 @@
 
   .bathroom-info {
     grid-area: infos;
+    margin-top: -160px;
   }
 
   .bathroom-photo {
@@ -37,6 +38,16 @@
 
 }
 
+.avatar-container {
+  justify-content: center;
+  display: flex;
+}
+
 .avatar-image {
   border-radius: 50%;
+
+}
+
+.title {
+  text-align: center;
 }

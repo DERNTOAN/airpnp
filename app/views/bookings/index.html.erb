@@ -1,30 +1,120 @@
 
 <div class="wrapper">
-  <div class="container bookings-index">
-    <h1>Shit stats</h1>
+  <div class="container">
+    <h1 class="text-center">Shit stats</h1>
 
-    <ul>
-      <% @bookings.each do |booking| %>
-      <li class= "listing">
-<%= cl_image_tag booking.user.photo, class: "avatar" %>
-        <div class="listing-name">
-<h3>name</h3>
-        </div>
+    <div class="bookings-index">
 
-<div class="listing-time"></div>
-<p>time</p>
+      <div class="bookings-past">
+<h2 class="text-center">Past bookings</h2>
 
-<div class="listing-status">
+        <ul>
+          <% @bookings.select{|b| (Time.now - b.created_at) / 60 > 30 }.each do |booking| %>
+          <li class= "listing">
+            <%= cl_image_tag booking.user.photo, class: "avatar pic" %>
 
-<p>status</p>
-</div>
 
-      </li>
-      <%= booking.bathroom.address %>
-      <%= booking.user.email %>
-      <%= link_to "details", bathroom_booking_path(booking.bathroom, booking) %>
-      <% end %>
-    </ul>
+            <div class="listing-name">
+                          <p>
+              <strong>
+            Visitor
+              </strong>
+          </p>
+              <p><%= booking.user.first_name %> <%= booking.user.last_name %></p>
+            </div>
 
+            <div class="listing-time">
+
+
+            <p>
+              <strong>
+            visit time
+              </strong>
+          </p>
+
+          <p>
+            <%= booking.created_at.strftime("%B %d at %H:%M") %>
+          </p>
+            </div>
+
+            <div class="listing-status">
+
+              <p>
+                <strong>
+
+              status
+                </strong>
+            </p>
+            <p>
+              job done
+            </p>
+            </div>
+
+          </li>
+
+          <% end %>
+        </ul>
+
+      </div>
+
+
+      <div class="bookings-upcoming">
+
+<h2 class="text-center">Upcoming bookings</h2>
+
+
+        <ul>
+          <% @bookings.select{|b| (Time.now - b.created_at) / 60 < 30 }.each do |booking| %>
+          <li class= "listing">
+            <%= cl_image_tag booking.user.photo, class: "avatar pic" %>
+
+
+            <div class="listing-name">
+                          <p>
+              <strong>
+            Visitor
+              </strong>
+          </p>
+              <p><%= booking.user.first_name %> <%= booking.user.last_name %></p>
+            </div>
+
+            <div class="listing-time">
+
+
+            <p>
+              <strong>
+            visit time
+              </strong>
+          </p>
+
+          <p>
+            <%= booking.created_at.strftime("%B %d at %H:%M") %>
+          </p>
+            </div>
+
+            <div class="listing-status">
+
+              <p>
+                <strong>
+
+              status
+                </strong>
+            </p>
+            <p>
+              on his way!
+            </p>
+            </div>
+
+          </li>
+
+          <% end %>
+        </ul>
+
+      </div>
+
+      </div>
+
+
+    </div>
   </div>
 </div>
