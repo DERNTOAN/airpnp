@@ -8,8 +8,7 @@ class Bathroom < ApplicationRecord
   validates :city, presence: true
   validates :photo, presence: true
   validates :price, presence: true
+  validates :user, presence: :true
 
   validates :description, presence: true
-  validates :style, inclusion: { in: ["western", "turkish", "japanese"] }
-  validates :toilet_paper, inclusion: { in: [ 1, 2, 3, 4, 5 ] }
 end
