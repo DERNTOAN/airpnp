@@ -1,4 +1,5 @@
 class BathroomsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
 
   def index
     @bathrooms = Bathroom.all
