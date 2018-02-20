@@ -53,9 +53,8 @@ addresses = [
 
 
 10.times do
-  name = Faker::HarryPotter.character.split
-  first_name = name.shift
-  last_name = name.join(" ")
+  first_name = Faker::Name.first_name
+  last_name = Faker::Name.last_name
   email = "#{first_name}@potter.com"
   password = "password"
   gender = ["male", "female", "other"].sample
@@ -75,12 +74,21 @@ addresses = [
   wipes = [true, false].sample
   baby = [true, false].sample
   bidet = [true, false].sample
-  bathroom = Bathroom.new(title: "test", address: address, plz: plz, city: city, description: description, price: price, handicapped: handicapped, style: style, toilet_paper: toilet_paper, wipes: wipes, baby: baby, bidet: bidet, user: user)
-  bathroom.remote_photo_url = bathrooms[i]
-  bathroom.save
-  i += 1
+  unless user.id == nil
+    bathroom = Bathroom.new(title: "test", address: address, plz: plz, city: city, description: description, price: price, handicapped: handicapped, style: style, toilet_paper: toilet_paper, wipes: wipes, baby: baby, bidet: bidet, user: user)
+    bathroom.remote_photo_url = bathrooms[i]
+    bathroom.save
+    i += 1
+  end
 end
 # create fake bathrooms
+
+50.times do
+  bathroom = Bathroom.all.sample
+  user = User.all.sample
+  booking = Booking.new(bathroom_id: bathroom.id, user: user)
+  booking.save
+end
 
   first_name = "Nicholas"
   last_name = "Utikal"
