@@ -19,9 +19,10 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'faker'
 
+
 gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
-gem 'gmaps4rails'
+
 
 
 group :development do
