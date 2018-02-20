@@ -23,7 +23,7 @@
           <% end %>
           <p>Address: <%= link_to bathroom.address, bathroom_path(bathroom) %></p>
         </div>
-
+<%= cl_image_tag(bathroom.user.photo, height: 400, width: 400, crop: :fit, class: "card-user") %>
       </div>
 
       <% end %>
