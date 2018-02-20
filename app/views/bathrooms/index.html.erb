@@ -1,23 +1,71 @@
-<h1>Availiable Bathrooms</h1>
 
 <div class="wrapper">
-  <div class="container">
-    <div class="row">
+
+
+  <div class="container available-bathrooms">
+
+    <h1 class= "title">Available Bathrooms</h1>
+
+
+    <div class="card-container">
+
+
       <% @bathrooms.each do |bathroom| %>
-      <div class="col-xs-12 col-sm-4">
-          <div class="card-description">
-            <h2>Address: <%= link_to bathroom.address, bathroom_path(bathroom) %></h2>
 
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path(bathroom.photo, height: 400, width: 400, crop: :fit) %> );">
 
-
+        <div class="card-category">Popular</div>
+        <div class="card-description">
+          <h2>
+            <%= bathroom.title %>
+          </h2>
+          <p>Address: <%= link_to bathroom.address, bathroom_path(bathroom) %></p>
         </div>
+        <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+        <a class="card-link" href="#" ></a>
+
+
+
       </div>
 
       <% end %>
-
     </div>
+
+    <div id="map" class="map-container" style='width: 100%; height: 100%;'></div>
+
+
+    <script>
+      function createMaps() {
+
+        handler = Gmaps.build('Google');
+        handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+          markers = handler.addMarkers([
+          {
+            "lat": 0,
+            "lng": 0,
+            "picture": {
+              "url": "http://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-32.png",
+              "width":  32,
+              "height": 32
+            },
+            "infowindow": "hello!"
+          }
+          ]);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+        });
+      }
+    </script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Gmaps JavaScript -->
+    <script src="//maps.google.com/maps/api/js?key=AIzaSyC20guMsQg74v8RFql5HXC7dRN447sEZEo"></script>
+    <!-- <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script> -->
+
+
   </div>
 </div>
+
+
 
 
 
