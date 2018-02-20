@@ -3,18 +3,18 @@
 
     <div class="bathroom-info">
 
-      <div class="avatar">
+      <div class="avatar-container">
 
 
         <%= link_to user_path do   %>
           <%= cl_image_tag @owner.photo, height: 100, width: 100, crop: :fill, class: "avatar-image" %>
-          <p>  <%= @owner.first_name %>  </p>
+          <p class="text-center">  <%= @owner.first_name %>  </p>
         <% end %>
 
 
       </div>
       <div>
-        <h1 class= "title"><%= @bathroom.title %></h1>
+        <h1 class="title"><%= @bathroom.title %></h1>
         <p>Address: <%= @bathroom.address %></p>
         <p>Handicapped suited? <%= @bathroom.handicapped %></p>
         <p>Style: <%= @bathroom.style %></p>
@@ -33,7 +33,7 @@
 
 
     <div class="bathroom-photo">
-      <%= cl_image_tag @bathroom.photo, height: 300, width: 400, crop: :fill %>
+      <%= cl_image_tag @bathroom.photo, height: 400, width: 500, crop: :fill %>
     </div>
 
     <div class="bathroom-map">
