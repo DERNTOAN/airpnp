@@ -21,6 +21,8 @@ gem 'faker'
 
 gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
+gem 'gmaps4rails'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'

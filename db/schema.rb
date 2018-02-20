@@ -28,9 +28,9 @@ ActiveRecord::Schema.define(version: 20180220100135) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "photo"
     t.string "plz"
     t.string "city"
+    t.string "photo"
     t.string "title"
     t.index ["user_id"], name: "index_bathrooms_on_user_id"
   end

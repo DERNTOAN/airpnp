@@ -1,0 +1,54 @@
+.available-bathrooms {
+  justify-self: center;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-gap: 1rem;
+
+  @media (min-width: 320px) {
+    grid-template-rows: 100px 1fr auto;
+    grid-template-areas:
+    "title"
+    "map"
+    "cards";
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: 3fr minmax(0,2fr);
+    grid-template-rows: 100px minmax(0,500px) 1fr;
+    grid-template-areas:
+    "title title"
+    "cards map"
+    "cards .";
+  }
+
+  .title {
+    grid-area: title;
+  }
+
+  .map-container {
+    grid-area: map;
+
+  }
+  .card-container {
+
+    grid-area: cards;
+    display: grid;
+    grid-gap: 1rem;
+
+    // @media (min-width: 320px) {
+      // grid-template-rows: 1fr;
+    // }
+    // @media (min-width: 768px) {
+      grid-template-columns: repeat(2,minmax(0,1fr));
+      // justify-items: center;
+    // }
+  }
+
+}
+
+
+#map {
+  position: sticky !important;
+  background-color: grey;
+}
