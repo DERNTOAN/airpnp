@@ -1,5 +1,22 @@
-<h1>Bathrooms#new</h1>
-<p>Find me in app/views/bathrooms/new.html.erb</p>
-
-
-<p>simple form with all necessary fields</p>
+<div class="container new-bathroom-form"><h1>Host your toilet!</h1>
+  <div>
+    <%= simple_form_for @bathroom do |f| %>
+      <%= f.input :title, placeholder: "Enter a Tagline" %>
+      <%= f.input :address, placeholder: "Streetname and number" %>
+      <%= f.input :plz, as: :integer%>
+      <%= f.input :city %>
+      <%= f.input :description, placeholder: "Further describe your bathroom", as: :text %>
+      <%= f.input :style, collection: ["western", "turkish", "japanese"], required: false %>
+      <%= f.input :price, placeholder: "in cents e.g 5€ = 500", as: :integer %>
+      <%= f.input :handicapped, label: "Wheelchair accessible?", as: :boolean, required: false %>
+      <%= f.input :toilet_paper, label: "How many plies does your toilet paper have?", collection: 1..5, required: false %>
+      <%= f.input :wipes, label: "Wetwipes?", as: :boolean, required: false %>
+      <%= f.input :baby, label: "Diaper-changing table?", as: :boolean, required: false %>
+      <%= f.input :bidet, label: "Bidet?", as: :boolean, required: false %>
+      <%= f.input :photo, label: "Upload a nice picture of your bathroom" %>
+      <%= f.input :photo_cache, as: :hidden %>
+      <%= f.submit %>
+      <% end %>
+    <p>All fields marked with a * are required</p>
+  </div>
+</div>
