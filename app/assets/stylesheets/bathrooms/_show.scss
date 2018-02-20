@@ -1,23 +1,13 @@
 
 .show-bathroom {
   display: grid;
-
+  margin-top: 20px;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-template-areas:
 
   "infos photo"
   "infos map";
-
-  //  @media (min-width: 600px) {
-  // grid-template-columns: 1fr;
-  // grid-template-rows: 100px auto 3fr 1fr;
-  // grid-template-areas:
-  // "title"
-  // "map"
-  // "cards"
-  // "icons infos map";
-  // }
 
 
   justify-items: center;
@@ -38,4 +28,15 @@
   .title {
     grid-area: photo;
     background-color: grey;
-  }}
+  }
+}
+
+.btn-primary {
+  color: white;
+  margin: 5px;
+
+}
+
+.avatar-image {
+  border-radius: 50%;
+}
