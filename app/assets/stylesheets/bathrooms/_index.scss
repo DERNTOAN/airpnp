@@ -28,6 +28,7 @@
 
   .map-container {
     grid-area: map;
+    background-color: grey;
 
   }
   .card-container {
@@ -45,10 +46,4 @@
     // }
   }
 
-}
-
-
-#map {
-  position: sticky !important;
-  background-color: grey;
 }

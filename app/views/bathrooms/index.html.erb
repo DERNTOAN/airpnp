@@ -16,15 +16,14 @@
 
         <div class="card-category">Popular</div>
         <div class="card-description">
+          <%= link_to bathroom_path(bathroom), class:"card-link" do %>
           <h2>
             <%= bathroom.title %>
           </h2>
+          <% end %>
           <p>Address: <%= link_to bathroom.address, bathroom_path(bathroom) %></p>
         </div>
-        <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-        <a class="card-link" href="#" ></a>
-
-
+<%= cl_image_tag(bathroom.user.photo, height: 400, width: 400, crop: :fit, class: "card-user") %>
 
       </div>
 
@@ -33,33 +32,6 @@
 
     <div id="map" class="map-container" style='width: 100%; height: 100%;'></div>
 
-
-    <script>
-      function createMaps() {
-
-        handler = Gmaps.build('Google');
-        handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-          markers = handler.addMarkers([
-          {
-            "lat": 0,
-            "lng": 0,
-            "picture": {
-              "url": "http://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-32.png",
-              "width":  32,
-              "height": 32
-            },
-            "infowindow": "hello!"
-          }
-          ]);
-          handler.bounds.extendWith(markers);
-          handler.fitMapToBounds();
-        });
-      }
-    </script>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <!-- Gmaps JavaScript -->
-    <script src="//maps.google.com/maps/api/js?key=AIzaSyC20guMsQg74v8RFql5HXC7dRN447sEZEo"></script>
-    <!-- <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script> -->
 
 
   </div>

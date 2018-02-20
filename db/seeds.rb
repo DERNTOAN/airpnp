@@ -19,6 +19,10 @@
 #   user.save
 # end
 
+Booking.destroy_all
+Bathroom.destroy_all
+User.destroy_all
+
 i = 0
 
 bathrooms = [
@@ -52,7 +56,7 @@ addresses = [
   name = Faker::HarryPotter.character.split
   first_name = name.shift
   last_name = name.join(" ")
-  email = "#{first_name}@#{name.join("_")}.com"
+  email = "#{first_name}@potter.com"
   password = "password"
   gender = ["male", "female", "other"].sample
   age = (18..70).to_a.sample
@@ -78,7 +82,39 @@ addresses = [
 end
 # create fake bathrooms
 
+  first_name = "Nicholas"
+  last_name = "Utikal"
+  email = "nicholasutikal@gmail.com"
+  password = "123456"
+  gender = "male"
+  age = 26
+  user = User.create(first_name: first_name, last_name: last_name, email: email, password: password, gender: gender, age: age)
 
 
+  first_name = "Vini"
+  last_name = "Tiet"
+  email = "tiet@mira-am.com"
+  password = "asdfgh"
+  gender = "male"
+  age = 34
+  user = User.create(first_name: first_name, last_name: last_name, email: email, password: password, gender: gender, age: age)
+
+
+  first_name = "Anton"
+  last_name = "Castell"
+  email = "castellanton@gmail.com"
+  password = "123456"
+  gender = "male"
+  age = 29
+  user = User.create(first_name: first_name, last_name: last_name, email: email, password: password, gender: gender, age: age)
+
+
+  first_name = "Henrik"
+  last_name = "Dittmar"
+  email = "hd@gmx.de"
+  password =  "123456"
+  gender = "male"
+  age = 23
+  user = User.create(first_name: first_name, last_name: last_name, email: email, password: password, gender: gender, age: age)
 
 

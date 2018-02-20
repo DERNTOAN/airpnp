@@ -1,0 +1,51 @@
+.bookings-index {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+}
+
+
+.listing {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid rgba(220,224,244,0.4);
+
+}
+
+.listing-name {
+  padding-left: 10px;
+  min-width: 100px;
+
+  h3 {
+    font-size: 13px;
+    margin-bottom: 0px;
+  }
+  p {
+    font-size: 13px;
+    font-weight: lighter;
+    opacity: 0.6;
+    margin-top: 5px;
+  }
+}
+
+.listing-time {
+  font-size: 13px;
+
+  padding-left: 20px;
+  color: rgba(0,0,0,0.4);
+
+  strong{
+    color: rgba(0,0,0,0.9);
+    color: rgba(0,0,0,0.9);
+  }
+  p {
+    margin: 6px 0;
+  }
+
+}
+
+.listing-status {
+  font-size: 14px;
+  font-weight: bold;
+}
+

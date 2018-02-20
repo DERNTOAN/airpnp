@@ -1,11 +1,52 @@
-<h2>Address: <%= @bathroom.address %></h2>
-<p>Handicapped suited? <%= @bathroom.handicapped %></p>
-<p>Style: <%= @bathroom.style %></p>
-<p>Toilet Paper Layer: <%= @bathroom.toilet_paper %></p>
-<p>Wipes Availiable: <%= @bathroom.wipes %></p>
-<p>Baby suited? <%= @bathroom.baby %></p>
-<p>Bidet Availiable? <%= @bathroom.bidet %></p>
+<div class="wrapper">
+  <div class="container show-bathroom">
 
-<%= link_to "Go Back", bathrooms_path %>
+    <div class="bathroom-info">
+
+      <div class="avatar">
+
+
+        <%= link_to user_path do   %>
+          <%= cl_image_tag @owner.photo, height: 100, width: 100, crop: :fill, class: "avatar-image" %>
+          <p>  <%= @owner.first_name %>  </p>
+        <% end %>
+
+
+      </div>
+      <div>
+        <h1 class= "title"><%= @bathroom.title %></h1>
+        <p>Address: <%= @bathroom.address %></p>
+        <p>Handicapped suited? <%= @bathroom.handicapped %></p>
+        <p>Style: <%= @bathroom.style %></p>
+        <p>Toilet Paper Layer: <%= @bathroom.toilet_paper %></p>
+        <p>Wipes Availiable: <%= @bathroom.wipes %></p>
+        <p>Baby suited? <%= @bathroom.baby %></p>
+        <p>Bidet Availiable? <%= @bathroom.bidet %></p>
+        <h2>Price: <%= @bathroom.price.to_f/100%>€</h2>
+
+        <%= link_to "Book!", new_bathroom_booking_path(@bathroom), class: "btn btn-primary" %>
+
+
+      </div>
+      <%= link_to "Go Back", bathrooms_path, class: "btn btn-primary" %>
+    </div>
+
+
+    <div class="bathroom-photo">
+      <%= cl_image_tag @bathroom.photo, height: 300, width: 400, crop: :fill %>
+    </div>
+
+    <div class="bathroom-map">
+      <p>MAP</p>
+    </div>
+
+
+  </div>
+</div>
+
+
+
+
+
 
 
