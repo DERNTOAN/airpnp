@@ -1,0 +1,67 @@
+.booking-confirm{
+  display: grid;
+  text-align: center;
+  grid-template-columns: 300px 300px;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+  "info image"
+  "info map";
+
+  @media (max-width: 320px) {
+    grid-template-columns: auto;
+    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-areas:
+    "image"
+    "info"
+    "map";
+  }
+}
+
+.booking-button{
+  // background-color: green;
+  grid-area: button;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.booking-host{
+
+  img{
+    background-color:white;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+  }
+}
+
+.booking-map{
+  background-color: grey;
+  grid-area: map;
+}
+
+.booking-bathroom-info{
+  // background-color: red;
+  grid-area: info;
+  padding: 10px 10px;
+  h3, p{
+    text-align:left;
+  };
+}
+
+.booking-bathroom-image{
+  // background-color: blue;
+  grid-area: image;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+}
+
+.center-container{
+  display:flex;
+  justify-content:center;
+}
