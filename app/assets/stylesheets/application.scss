@@ -16,3 +16,7 @@
 @import "bathrooms/index";
 @import "bookings/new";
 @import "bookings/index";
+
+body{
+  background-color: $secondary;
+}
