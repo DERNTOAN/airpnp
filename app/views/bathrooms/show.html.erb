@@ -6,9 +6,9 @@
       <div class="avatar">
 
 
-        <%= link_to bathrooms_path do   %>
+        <%= link_to user_path do   %>
           <%= cl_image_tag @owner.photo, height: 100, width: 100, crop: :fill, class: "avatar-image" %>
-          <p>  <%= @owner.name %> </p>
+          <p>  <%= @owner.first_name %>  </p>
         <% end %>
 
 
