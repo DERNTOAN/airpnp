@@ -6,23 +6,22 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-10.times do
-  name = Faker::HarryPotter.character.split
-  first_name = name.shift
-  last_name = name.join(" ")
-  email = "#{first_name}@#{name.join("_")}.com"
-  password = "password"
-  gender = ["male", "female", "other"].sample
-  age = (13..70).to_a.sample
-  user = User.create(first_name: first_name, last_name: last_name, email: email, password: password, gender: gender, age: age)
-  user.remote_photo_url = Faker::Avatar.image
-  user.save
-end
+# 10.times do
+#   name = Faker::HarryPotter.character.split
+#   first_name = name.shift
+#   last_name = name.join(" ")
+#   email = "#{first_name}@#{name.join("_")}.com"
+#   password = "password"
+#   gender = ["male", "female", "other"].sample
+#   age = (13..70).to_a.sample
+#   user = User.create(first_name: first_name, last_name: last_name, email: email, password: password, gender: gender, age: age)
+#   user.remote_photo_url = Faker::Avatar.image
+#   user.save
+# end
 
 i = 0
 
 bathrooms = [
-
 "https://cdn.freshome.com/wp-content/uploads/2014/02/Stylish-Modern-Bathroom-Design-24.jpg",
 "http://www.pickndecor.com/wp-content/uploads/2017/08/bathroom-color-kb-2462389-bath-vertical-color-combos-bathroom1-orcojoc-.jpg",
 "http://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2008/12/30/0/joe-marshall-guest-bathroom-blue.jpg.rend.hgtvcom.616.462.suffix/1400944275953.jpeg",
@@ -35,6 +34,20 @@ bathrooms = [
 "http://www.healthytippingpoint.com/wp-content/uploads/2012/07/IMG_0736_thumb.jpg?x38904"
 ]
 
+addresses = [
+  {address: "Rudi-dutschke-Strasse 26", plz: "10969"},
+  {address: "Charlottenstrasse 13", plz: "10969"},
+  {address: "Charlottenstrasse 1", plz: "10969"},
+  {address: "Mauerstrasse 85", plz: "10117"},
+  {address: "Leipziger Platz 9", plz: "10117"},
+  {address: "Potsdamer Platz 1", plz: "10117"},
+  {address: "Leipziger Platz 1", plz: "10117"},
+  {address: "Schützenstrasse 51", plz: "10117"},
+  {address: "Niederkirchnerstraße 7", plz: "10117"},
+  {address: "Wilhelmstraße 24", plz: "10963"},
+]
+
+
 10.times do
   name = Faker::HarryPotter.character.split
   first_name = name.shift
@@ -42,20 +55,23 @@ bathrooms = [
   email = "#{first_name}@#{name.join("_")}.com"
   password = "password"
   gender = ["male", "female", "other"].sample
-  age = (13..70).to_a.sample
-  user = User.create(first_name: first_name, last_name: last_name, email: email, password: password, gender: gender, age: age)
-  address= Faker::Address.street_address
-  city = Faker::Address.city #=> "Imogeneborough"
-  plz = (10000..10999).to_a.sample.to_s
+  age = (18..70).to_a.sample
+  user = User.new(first_name: first_name, last_name: last_name, email: email, password: password, gender: gender, age: age)
+  user.remote_photo_url = Faker::Avatar.image
+  user.save
+
+  address= addresses[i][:address]
+  plz = addresses[i][:plz]
+  city = "Berlin"
   description = Faker::Lorem.paragraph
   price = (1..8).to_a.map { |n| n * 25}.sample
   handicapped = [true, false].sample
-  style = ["western", "turkish", "japanese"]
+  style = %w(western turkish japanese).sample
   toilet_paper = (1..5).to_a.sample
   wipes = [true, false].sample
   baby = [true, false].sample
   bidet = [true, false].sample
-  bathroom = Bathroom.create(address: address, description: description, price: price, handicapped: handicapped, style: style, toilet_paper: toilet_paper, wipes: wipes, baby: baby, bidet: bidet, user: user)
+  bathroom = Bathroom.new(title: "test", address: address, plz: plz, city: city, description: description, price: price, handicapped: handicapped, style: style, toilet_paper: toilet_paper, wipes: wipes, baby: baby, bidet: bidet, user: user)
   bathroom.remote_photo_url = bathrooms[i]
   bathroom.save
   i += 1
