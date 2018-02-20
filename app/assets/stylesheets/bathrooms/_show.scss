@@ -38,10 +38,14 @@
 
 }
 
-.avatar-image {
-  border-radius: 50%;
+.avatar-container {
   justify-content: center;
   display: flex;
+}
+
+.avatar-image {
+  border-radius: 50%;
+
 }
 
 .title {

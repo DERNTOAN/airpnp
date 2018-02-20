@@ -3,12 +3,12 @@
 
     <div class="bathroom-info">
 
-      <div class="avatar">
+      <div class="avatar-container">
 
 
         <%= link_to user_path do   %>
           <%= cl_image_tag @owner.photo, height: 100, width: 100, crop: :fill, class: "avatar-image" %>
-          <p>  <%= @owner.first_name %>  </p>
+          <p class="text-center">  <%= @owner.first_name %>  </p>
         <% end %>
 
 
