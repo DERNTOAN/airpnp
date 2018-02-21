@@ -1,9 +1,16 @@
 Arguments: 
+<<<<<<< HEAD
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.3.2/libexec/bin/yarn.js install
+
+PATH: 
+  /Users/nicholasutikal/.rvm/gems/ruby-2.4.3/bin:/Users/nicholasutikal/.rvm/gems/ruby-2.4.3@global/bin:/Users/nicholasutikal/.rvm/rubies/ruby-2.4.3/bin:/Users/nicholasutikal/.rvm/bin:./bin:./node_modules/.bin:/Users/nicholasutikal/.rbenv/shims:/Users/nicholasutikal/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/Postgres.app/Contents/Versions/latest/bin:/usr/local/sbin
+=======
   /usr/local/Cellar/node/9.5.0/bin/node /usr/local/Cellar/yarn/1.3.2/libexec/bin/yarn.js install
 
 PATH: 
 
   /Users/tiet/.rbenv/versions/2.4.3/bin:/usr/local/Cellar/rbenv/1.1.1/libexec:./bin:./node_modules/.bin:/Users/tiet/.rbenv/shims:/Users/tiet/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/sbin
+>>>>>>> master
 
 Yarn version: 
   1.3.2
@@ -22,7 +29,11 @@ npm manifest:
       "@rails/webpacker": "^3.2.2",
       "bootstrap": "3",
       "jquery": "^3.3.1",
+<<<<<<< HEAD
+      "sweetalert": "^2.1.0"
+=======
       "sweetalert": "^2.1.0",
+>>>>>>> master
       "gmaps": "^0.4.24",
   
     },
@@ -6146,8 +6157,15 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
+<<<<<<< HEAD
+<<<<<<< HEAD
+  SyntaxError: /Users/nicholasutikal/code/nichohelmut/airpnp/package.json: Unexpected string in JSON at position 172
+=======
+=======
 
+>>>>>>> master
   SyntaxError: /Users/tiet/code/DERNTOAN/airpnp/package.json: Unexpected token } in JSON at position 196
+>>>>>>> master
       at JSON.parse (<anonymous>)
       at /usr/local/Cellar/yarn/1.3.2/libexec/lib/cli.js:770:59
       at Generator.next (<anonymous>)
