@@ -12,6 +12,9 @@ class Bathroom < ApplicationRecord
   validates :user, presence: :true
   validates :description, presence: true
 
+  geocoded_by :complete_address
+  after_validation :geocode, if: :will_save_change_to_address?
+
   def complete_address
     address + " " + plz + " " + city
   end
