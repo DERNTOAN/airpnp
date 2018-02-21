@@ -1,35 +1,35 @@
 <div class="wrapper">
   <div class="container show-bathroom">
 
-    <div class="bathroom-info">
 
+
+    <div class="title">
+      <h1><%= @bathroom.title %></h1>
+    </div>
+
+    <div class="info-container">
       <div class="avatar-container">
-
-
         <%= link_to user_path do   %>
-          <%= cl_image_tag @owner.photo, height: 100, width: 100, crop: :fill, class: "avatar-image" %>
-          <p class="text-center">  <%= @owner.first_name %>  </p>
+        <%= cl_image_tag @owner.photo, height: 100, width: 100, crop: :fill, class: "avatar-image" %>
+        <p class="text-center">  <%= @owner.first_name %>  </p>
         <% end %>
-
-
       </div>
-      <div>
-        <h1 class="title"><%= @bathroom.title %></h1>
-        <p>Address: <%= @bathroom.address %></p>
-        <p>Handicapped suited? <%= @bathroom.handicapped %></p>
-        <p>Style: <%= @bathroom.style %></p>
-        <p>Toilet Paper Layer: <%= @bathroom.toilet_paper %></p>
-        <p>Wipes Availiable: <%= @bathroom.wipes %></p>
-        <p>Baby suited? <%= @bathroom.baby %></p>
-        <p>Bidet Availiable? <%= @bathroom.bidet %></p>
-        <h2>Price: <%= @bathroom.price.to_f/100%>€</h2>
+      <p>Address: <%= @bathroom.address %></p>
+      <p>Handicapped suited? <%= @bathroom.handicapped %></p>
+      <p>Style: <%= @bathroom.style %></p>
+      <p>Toilet Paper Layer: <%= @bathroom.toilet_paper %></p>
+      <p>Wipes Availiable: <%= @bathroom.wipes %></p>
+      <p>Baby suited? <%= @bathroom.baby %></p>
+      <p>Bidet Availiable? <%= @bathroom.bidet %></p>
+      <h2>Price: <%= @bathroom.price.to_f/100%>€</h2>
 
-        <%= link_to "Book!", new_bathroom_booking_path(@bathroom), class: "btn btn-primary" %>
-
-
-      </div>
+      <%= link_to "Book!", new_bathroom_booking_path(@bathroom), class: "btn btn-primary" %>
       <%= link_to "Go Back", bathrooms_path, class: "btn btn-primary" %>
     </div>
+
+
+
+
 
 
     <div class="bathroom-photo">
@@ -39,7 +39,6 @@
     <div class="bathroom-map">
       <p>MAP</p>
     </div>
-
 
   </div>
 </div>
