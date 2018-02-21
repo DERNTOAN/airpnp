@@ -1,7 +1,6 @@
 function autocomplete() {
   document.addEventListener("DOMContentLoaded", function() {
     var addressInput = document.getElementById('address_input');
-    // (flat_address) id has to be changed!!!
 
     if (addressInput) {
       var autocomplete = new google.maps.places.Autocomplete(addressInput, { types: [ 'geocode' ] });
