@@ -20,6 +20,7 @@ class BookingsController < ApplicationController
   end
 
   def show
+    require 'date'
     @booking = Booking.find(params[:id])
     @owner = @booking.bathroom.user
     @markers =
