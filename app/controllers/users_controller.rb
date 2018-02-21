@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    # Ist nur Zwischenlösung für Mittwoch-Demo
     authorize @user
     @user.address = user_params[:address]
     @user.save
