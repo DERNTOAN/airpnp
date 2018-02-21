@@ -19,7 +19,6 @@ class BathroomsController < ApplicationController
   def create
     @bathroom = Bathroom.new(bathroom_params)
     @bathroom.user = current_user
-    @bathroom.address_complete = @bathroom.address + " " + @bathroom.city
     authorize @bathroom
     if @bathroom.save
       redirect_to bathroom_path(@bathroom)
