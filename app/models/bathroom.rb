@@ -3,6 +3,10 @@ class Bathroom < ApplicationRecord
   :complete_address
   belongs_to :user
   has_many :bookings
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
   validates :address, presence: true
   validates :title, presence: true
   validates :plz, presence: true
