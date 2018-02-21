@@ -13,11 +13,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    # Ist nur Zwischenlösung für Mittwoch-Demo
-    authorize @user
-    @user.address = user_params[:address]
-    @user.save
-    redirect_to bathrooms_path
+    # # Ist nur Zwischenlösung für Mittwoch-Demo
+    # authorize @user
+    # @user.address = user_params[:address]
+    # @user.save
+    # redirect_to bathrooms_path
   end
 
   def show
