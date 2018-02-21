@@ -5,15 +5,63 @@
 
       <div class="booking-info">
 
-        <h1>Run!</h1>
-        <h4>Remaining time:</h4>
+
+   
+          <h1 class="run">Run!</h1>
+
+<div class="where-info">
+
+<p>
+<%= @booking.bathroom.address %>, <%= @booking.bathroom.plz %>, <%= @booking.bathroom.city %></p>
+
+</div>
+
+
+<div class="user-info-vt">
+<p>
+  Host: <%= @booking.bathroom.user.first_name %> <%= @booking.bathroom.user.last_name %>
+</p>
+
+
+
+</div>
+
+<div class="text-time">
+
+
+<p>
+  <strong>
+  don't waste your time buddy
+  </strong>
+</p>
+<p>
+<em>
+
+(not like your host would care) :
+</em>
+</p>
+
+</div>
+
+<div id="booking-timer" class="timer">
+
         <h4 id="booking-timer" data-created=<%= (@booking.created_at.to_f+30*60)*1000 %>></h4>
-        <h4>Host:</h4>
-        <div class="avatar-container">
-          <%= link_to user_path do   %>
-          <%= cl_image_tag @owner.photo, height: 100, width: 100, crop: :fill, class: "avatar-bordered" %>
-          <% end %>
-        </div>
+
+
+  <p><i class="fab fa-accessible-icon"></i> 25:04</p>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
       </div>
 
       <div class="bathroom-info">
@@ -24,13 +72,6 @@
             <h1 class="title"><%= @booking.bathroom.title %></h1>
             <p class = "distance">600 m</p>
           </div>
-
-          <div class="avatar-container">
-            <%= link_to user_path do   %>
-            <%= cl_image_tag @owner.photo, height: 100, width: 100, crop: :fill, class: "avatar-bordered" %>
-            <% end %>
-          </div>
-
 
         </div>
 

@@ -34,9 +34,10 @@ a {
 
     grid-template-rows: max-content 1fr;
     grid-template-areas:
+    "map"
     "booking-info"
     "infos"
-    "map";
+    ;
   }
 
   @media (min-width: 768px) {
@@ -62,16 +63,86 @@ a {
   align-items: top;
 
 
-.booking-info {
+  .booking-info {
     grid-area: booking-info;
+    display: grid;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    width: 100%;
+    padding: 15px;
+    grid-template-rows: repeat(3, auto);
+    grid-template-columns: auto auto 1fr;
+    grid-gap: 1rem;
+    align-items: center;
+  grid-template-areas:
+    "run where where"
+    "run user user"
+    "text-time text-time timer";
 
+  .run {
+    margin-top: 0px;
+    grid-area: run;
+  }
+  .where-info {
+    grid-area: where;
+    padding: 15px;
+    padding-bottom:0;
+
+p {
+  font-size: 24px;
+  color: red;
+  margin: 0;
+  font-weight: bold;
 }
 
 
+  }
+
+
+  .user-info-vt {
+    grid-area: user;
+    padding-top:0;
+
+
+    p {
+    font-size: 15px;
+    padding: 15px;
+      }
+
+
+  }
+
+.text-time {
+  grid-area: text-time;
+  margin-top: 30px;
+  strong {
+    font-size: 18px;
+    margin: 0;
+  }
+
+  em {
+    font-size: 15px
+  }
+}
+.timer {
+  justify-self: center;
+  grid-area: timer;
+  p {
+    font-size: 24px;
+    font-weight: bold;
+  }
+}
+
+
+  }
+
+
   .bathroom-info {
+    background-color: #f3f3f3;
+    border-radius: 5px;
     width: 100%;
     grid-area: infos;
-    padding-top: 20px;
+    padding: 15px;
 
     .bathroom-head {
       display: flex;

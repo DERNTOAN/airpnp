@@ -74,8 +74,9 @@ addresses = [
   wipes = [true, false].sample
   baby = [true, false].sample
   bidet = [true, false].sample
+  title = Faker::RickAndMorty.location
   unless user.id == nil
-    bathroom = Bathroom.new(title: "test", address: address, plz: plz, city: city, description: description, price: price, handicapped: handicapped, style: style, toilet_paper: toilet_paper, wipes: wipes, baby: baby, bidet: bidet, user: user)
+    bathroom = Bathroom.new(title: title, address: address, plz: plz, city: city, description: description, price: price, handicapped: handicapped, style: style, toilet_paper: toilet_paper, wipes: wipes, baby: baby, bidet: bidet, user: user)
     bathroom.remote_photo_url = bathrooms[i]
     bathroom.save
     i += 1
