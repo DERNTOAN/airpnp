@@ -6,7 +6,5 @@ import "../bathroom/index"
 
 import { filterBar, applyFilter } from '../bathroom/index';
 
-
-console.log("tes2")
 filterBar();
 
