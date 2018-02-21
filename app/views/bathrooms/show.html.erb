@@ -57,7 +57,6 @@
 
          <p><%= @bathroom.description %></p>
 
-
       </div>
 
       <%= link_to bathroom_bookings_path(@bathroom), method: :post do %>
@@ -79,8 +78,13 @@
         <%= link_to "See photos", "#", class: "photos-link btn btn-danger" %>
     </div>
 
-    <div class="bathroom-map">
-    </div>
+    <div
+    id="map"
+    style="width: 100%; height: 600px;"
+    data-markers="<%= @markers.to_json %>"
+    class="bathroom-map"
+    >
+
 
   <%= link_to "Don't like this bathroom? Swipe back", bathrooms_path, class: "btn btn-danger" %>
 

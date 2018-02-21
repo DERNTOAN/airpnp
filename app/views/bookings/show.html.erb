@@ -1,24 +1,108 @@
-<div class="container flex-center">
-  <div class="sub-container">
-    <div class="directions">
-      <p>map placeholder</p>
+<div class="wrapper">
 
-    </div>
-    <div class="box-booking-show">
-      <div class="booking-show-info">
-        <p>
-          <%= "Booking Time: #{@booking.created_at} " %>
-        </p>
-        <%= "#{@booking.bathroom.address}, #{@booking.bathroom.plz} #{@booking.bathroom.city}"   %>
+  <div class="container">
+    <div class="booking-grid">
+
+      <div class="booking-info">
+
+<h1>Run!</h1>
+<h4>Remaining time:</h4>
+
+
+<h4>
+  Host:
+</h4>
+          <div class="avatar-container">
+            <%= link_to user_path do   %>
+            <%= cl_image_tag @owner.photo, height: 100, width: 100, crop: :fill, class: "avatar-bordered" %>
+            <% end %>
+          </div>
+
+
+
+
+
+
+
+
+
       </div>
 
-      <div class="booking-show-bathroom">
-        <%=cl_image_tag(@booking.bathroom.photo, width: 400, height: 200, crop: :fill, class: "bath-pic")%>
-        <div class="booking-host">
-          <%= cl_image_tag( @booking.bathroom.user.photo, :crop => :fill) %>
+
+      <div class="bathroom-info">
+
+        <p class = "uptag"><%= @booking.bathroom.style.upcase %> TOILET IN <%= @booking.bathroom.city.upcase %> </p>
+        <div class="bathroom-head">
+
+          <div class="main-infos">
+            <h1 class="title"><%= @booking.bathroom.title %></h1>
+            <p class = "distance">600 m</p>
+          </div>
+
+          <div class="avatar-container">
+            <%= link_to user_path do   %>
+            <%= cl_image_tag @owner.photo, height: 100, width: 100, crop: :fill, class: "avatar-bordered" %>
+            <% end %>
+          </div>
+
+
         </div>
-      </div>
-    </div>
 
-  </div>
+        <div class="bathroom-properties">
+          <i class="fas fa-hand-paper"></i>
+
+        </i>  <span><%= @booking.bathroom.toilet_paper %> layers toilet paper</span>
+
+        <span>
+
+          <i class="fab fa-accessible-icon"></i>  <span><%= @booking.bathroom.handicapped ? "accessible" : "not for persons with limited mobility" %></span>
+        </span>
+        <span>
+
+          <%  if @booking.bathroom.baby %>
+          <i class="fas fa-bug"></i> <span>"Babies welcome"</span>
+          <% end %>
+        </span>
+
+        <span>
+
+          <%  if @booking.bathroom.wipes %>
+          <i class="fas fa-bug"></i><span>"Wipes"</span>
+          <% end %>
+        </span>
+
+        <span>
+
+          <%  if @booking.bathroom.bidet %>
+          <i class="fas fa-bug"></i><span>"Bidet"</span>
+          <% end %>
+        </span>
+      </div>
+
+      <div class="bathroom-description">
+
+       <p><%= @booking.bathroom.description %></p>
+
+     </div>
+
+
+
+   </div>
+
+
+   <div
+   id="map"
+   style="width: 100%; height: 600px;"
+   data-markers="<%= @markers.to_json %>"
+   class="bathroom-map"
+   >
+
+
+   <%= link_to "Don't like this bathroom? Swipe back", bathrooms_path, class: "btn btn-danger" %>
+
+ </div>
 </div>
+
+
+
+
