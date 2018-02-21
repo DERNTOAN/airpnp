@@ -13,6 +13,10 @@ class UsersController < ApplicationController
   end
 
   def update
+    authorize @user
+    @user.address = user_params[:address]
+    @user.save
+    redirect_to bathrooms_path
   end
 
   def show
@@ -22,7 +26,6 @@ class UsersController < ApplicationController
   def edit
     u = User.create(user_params)
     redirect_to u_path
-
   end
 
   def get_user
@@ -30,7 +33,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit([:email, :password, :photo, :photo_cache, :first_name, :last_name, :gender])
+    params.require(:user).permit([:email, :password, :photo, :photo_cache, :first_name, :last_name, :gender, :address])
   end
 
 end

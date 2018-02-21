@@ -2,6 +2,7 @@ Arguments:
   /usr/local/Cellar/node/9.5.0/bin/node /usr/local/Cellar/yarn/1.3.2/libexec/bin/yarn.js install
 
 PATH: 
+
   /Users/tiet/.rbenv/versions/2.4.3/bin:/usr/local/Cellar/rbenv/1.1.1/libexec:./bin:./node_modules/.bin:/Users/tiet/.rbenv/shims:/Users/tiet/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/sbin
 
 Yarn version: 
@@ -6145,6 +6146,7 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
+
   SyntaxError: /Users/tiet/code/DERNTOAN/airpnp/package.json: Unexpected token } in JSON at position 196
       at JSON.parse (<anonymous>)
       at /usr/local/Cellar/yarn/1.3.2/libexec/lib/cli.js:770:59
