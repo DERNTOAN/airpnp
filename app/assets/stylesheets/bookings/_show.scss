@@ -1,10 +1,19 @@
 .booking-show-grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:1fr auto;
   grid-template-rows:1fr 1fr;
   grid-template-areas:
   "info guest"
   "info host";
+
+  @media (max-width: 320px) {
+    grid-template-columns: auto;
+    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-areas:
+    "image"
+    "info"
+    "map";
+  }
 
   .booking-show-info{
     grid-area: info;
