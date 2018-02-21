@@ -3,7 +3,7 @@ class BathroomsController < ApplicationController
 
   def index
     @bathrooms = policy_scope(Bathroom)
-    @bathrooms = Bathroom.where.not(latitude: nil, longitude: nil)
+    #  @bathrooms = Bathroom.where.not(latitude: nil, longitude: nil)
 
     @markers = @bathrooms.map do |bathroom|
       {
@@ -12,6 +12,7 @@ class BathroomsController < ApplicationController
         # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
       }
     end
+
   end
 
   def show
