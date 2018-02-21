@@ -3,11 +3,24 @@ class BathroomsController < ApplicationController
 
   def index
     @bathrooms = policy_scope(Bathroom)
+    #  @bathrooms = Bathroom.where.not(latitude: nil, longitude: nil)
+
+    @markers = @bathrooms.map do |bathroom|
+      {
+        lat: bathroom.latitude,
+        lng: bathroom.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
+    end
+
   end
 
   def show
     @bathroom = Bathroom.find(params[:id])
     @owner = @bathroom.user
+    @booking = Booking.new
+    @booking.user = current_user
+    # authorize @booking
     authorize @bathroom
   end
 

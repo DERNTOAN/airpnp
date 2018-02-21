@@ -2,7 +2,7 @@
 <div class="wrapper">
 
 
-  <div class="container">
+      <div class="container">
 
     <h1 class="text-center">
       Available Bathrooms
@@ -26,7 +26,8 @@
       </form>
     </div>
 
-    <div class="available-bathrooms">
+
+            <div class="available-bathrooms">
 
       <div class="card-container">
         <% @bathrooms.each do |bathroom| %>
@@ -44,12 +45,22 @@
 
       </div>
 
-      <div id="map" class="map-container" style='width: 100%; height: 100%;'></div>
+
+
+                  <div
+                  id="map" class="map-container"
+                  style="mind-width: 300px; width: 100%;
+                  height: 600px;"
+                  data-markers="<%= @markers.to_json %>">
+                </div>
+
+
+          </div>
+
+      <!-- might need styling, see _index.scss -->
+
 
     </div>
-
-
-  </div>
 </div>
 
 
