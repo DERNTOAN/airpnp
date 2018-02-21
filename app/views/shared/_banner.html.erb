@@ -2,6 +2,9 @@
   <div class="banner-content">
     <h1>AirPnP</h1>
     <h2>Gotta Pee? - Find a toilet</h2>
-    <a class="btn btn-success btn-lg" href="<%= bathrooms_path %>">Find Relieve</a>
+    <%= simple_form_for current_user do |f| %>
+      <%= f.input :address, placeholder: "Where are you at?", label: false, id:"address_input" %>
+      <%= f.button :submit, "Find Relief", class:"btn btn-success btn-lg"%>
+    <% end %>
   </div>
 </div>

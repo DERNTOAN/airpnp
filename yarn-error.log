@@ -8,6 +8,7 @@ PATH:
   /usr/local/Cellar/node/9.5.0/bin/node /usr/local/Cellar/yarn/1.3.2/libexec/bin/yarn.js install
 
 PATH: 
+
   /Users/tiet/.rbenv/versions/2.4.3/bin:/usr/local/Cellar/rbenv/1.1.1/libexec:./bin:./node_modules/.bin:/Users/tiet/.rbenv/shims:/Users/tiet/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/sbin
 >>>>>>> master
 
@@ -6157,8 +6158,12 @@ Lockfile:
 
 Trace: 
 <<<<<<< HEAD
+<<<<<<< HEAD
   SyntaxError: /Users/nicholasutikal/code/nichohelmut/airpnp/package.json: Unexpected string in JSON at position 172
 =======
+=======
+
+>>>>>>> master
   SyntaxError: /Users/tiet/code/DERNTOAN/airpnp/package.json: Unexpected token } in JSON at position 196
 >>>>>>> master
       at JSON.parse (<anonymous>)
