@@ -12,11 +12,17 @@ class BathroomsController < ApplicationController
         # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
       }
     end
-
   end
 
   def show
     @bathroom = Bathroom.find(params[:id])
+    @markers =
+      [{
+        lat: @bathroom.latitude,
+        lng: @bathroom.longitude
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }]
+
     @owner = @bathroom.user
     @booking = Booking.new
     @booking.user = current_user

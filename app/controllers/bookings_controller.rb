@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.user_id = current_user.id
     @booking.save
-    redirect_to bathroom_bookings_path
+    redirect_to bathroom_booking_path(@booking.bathroom, @booking)
   end
 
   def index
@@ -21,6 +21,13 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
+    @owner = @booking.bathroom.user
+    @markers =
+      [{
+        lat: @booking.bathroom.latitude,
+        lng: @booking.bathroom.longitude
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }]
     authorize @booking
   end
 

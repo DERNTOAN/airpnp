@@ -3,6 +3,11 @@
 }
 
 
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}
 .show-bathroom {
 
   @media (min-width: 320px) {
