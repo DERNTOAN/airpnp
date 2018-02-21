@@ -15,6 +15,7 @@ function getTimeRemaining(endtime){
 
 function countdownTimer(){
   const timer = document.getElementById("booking-timer");
+  if (timer){
   let created = timer.dataset["created"];
   let endtime = new Date(parseFloat(created));
   console.log(endtime);
@@ -27,6 +28,7 @@ function countdownTimer(){
       clearInterval(timeinterval);
     }
   }, 1000);
+}
 }
 
 
