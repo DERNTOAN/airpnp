@@ -1,18 +1,15 @@
-<div class="container">
-  <div class="booking-show-grid">
+<div class="container flex-center">
+  <div class="sub-container">
+    <div class="directions">
+      <p>map placeholder</p>
+
+    </div>
+
     <div class="booking-show-info">
-      <%= "Booking Time: #{@booking.created_at}"  %>
+      <p>
+      <%= "Booking Time: #{@booking.created_at} " %>
+      </p>
       <%= "#{@booking.bathroom.address}, #{@booking.bathroom.plz} #{@booking.bathroom.city}"   %>
-    </div>
-
-    <div class="booking-show-host">
-      <%= cl_image_tag @booking.bathroom.user.photo, class: "booking-host" %>
-      <%= "#{@booking.bathroom.user.first_name} #{@booking.bathroom.user.last_name}"  %>
-    </div>
-
-    <div class="booking-show-guest">
-      <%= cl_image_tag @booking.user.photo, class: "booking-host" %>
-      <%= "#{@booking.user.first_name} #{@booking.user.last_name}"  %>
     </div>
   </div>
 </div>

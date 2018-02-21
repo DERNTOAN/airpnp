@@ -1,29 +1,45 @@
-.booking-show-grid{
-  display:grid;
-  grid-template-columns:1fr auto;
-  grid-template-rows:1fr 1fr;
-  grid-template-areas:
-  "info guest"
-  "info host";
+// .booking-show-grid{
+//   display:grid;
+//   grid-template-columns:1fr auto;
+//   grid-template-rows:1fr 1fr;
+//   grid-template-areas:
+//   "info guest"
+//   "info host";
 
-  @media (max-width: 320px) {
-    grid-template-columns: auto;
-    grid-template-rows: 1fr 2fr 1fr;
-    grid-template-areas:
-    "image"
-    "info"
-    "map";
-  }
+//   @media (max-width: 320px) {
+//     grid-template-columns: auto;
+//     grid-template-rows: 1fr 2fr 1fr;
+//     grid-template-areas:
+//     "image"
+//     "info"
+//     "map";
+//   }
 
-  .booking-show-info{
-    grid-area: info;
-  }
+//   .booking-show-info{
+//     grid-area: info;
+//   }
 
-  .booking-show-host{
-    grid-area: host;
-  }
+//   .booking-show-host{
+//     grid-area: host;
+//   }
 
-  .booking-show-guest{
-    grid-area: guest;
-  }
+//   .booking-show-guest{
+//     grid-area: guest;
+//   }
+// }
+
+.flex-center{
+  display:flex;
+  justify-content:center;
+
+}
+
+.directions{
+  background-color: grey;
+  width: 100%;
+  height: calc( 70vh - 70px);
+}
+
+.sub-container{
+  width: 100%;
 }
