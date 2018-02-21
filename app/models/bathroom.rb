@@ -13,8 +13,8 @@ class Bathroom < ApplicationRecord
   validates :description, presence: true
 
 
-  def class_string(b)
-    string = "data-tp='#{b.toilet_paper}', data-price='#{b.price}', data-baby='#{b.baby}', data-bidet='#{b.bidet}', data-handicapped='#{b.handicapped}', data-style='#{b.style} '"
+  def self.class_string(b)
+    string = "data-tp=#{b.toilet_paper} data-price=#{b.price} data-baby=#{b.baby} data-bidet=#{b.bidet} data-handicapped=#{b.handicapped} data-style=#{b.style}"
     return string
   end
 end

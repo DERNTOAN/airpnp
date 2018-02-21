@@ -1,6 +1,7 @@
 import "bootstrap";
 import "../components/maps"
+import "../bathroom/index"
 
 
-import { createMaps } from '../components/maps';
-createMaps();
+import { filterBar, applyFilter } from '../bathroom/index';
+filterBar();
