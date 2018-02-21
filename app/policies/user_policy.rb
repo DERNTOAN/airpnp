@@ -10,4 +10,8 @@ class UserPolicy < ApplicationPolicy
       true
     end
   end
+
+  def update?
+    true
+  end
 end
