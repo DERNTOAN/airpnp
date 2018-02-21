@@ -17,6 +17,9 @@ class BathroomsController < ApplicationController
   def show
     @bathroom = Bathroom.find(params[:id])
     @owner = @bathroom.user
+    @booking = Booking.new
+    @booking.user = current_user
+    # authorize @booking
     authorize @bathroom
   end
 

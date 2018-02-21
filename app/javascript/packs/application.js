@@ -1,6 +1,5 @@
 import "bootstrap";
-import "../components/maps"
 
+import { confirmBooking } from '../components/alert';
+confirmBooking();
 
-import { createMaps } from '../components/maps';
-createMaps();

@@ -55,13 +55,23 @@
 
       <div class="bathroom-description">
 
-        <p><%= @bathroom.description %></p>
+         <p><%= @bathroom.description %></p>
 
 
       </div>
 
+      <%= link_to bathroom_bookings_path(@bathroom), method: :post do %>
+<button id="AJAXIFY THIS ON FRIDAY" class="btn btn-danger btn-lg btn-block">
 
-      <%= link_to  "Book this bathroom for #{@bathroom.price.to_f/100}€",  new_bathroom_booking_path(@bathroom), class: "btn btn-danger btn-lg btn-block" %>
+  Book this bathroom for <%= @bathroom.price.to_f/100 %> €
+
+</button>
+
+<% end %>
+
+
+
+
     </div>
 
     <div class="bathroom-photo">
