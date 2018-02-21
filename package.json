@@ -6,6 +6,8 @@
     "bootstrap": "3",
     "jquery": "^3.3.1",
     "sweetalert": "^2.1.0"
+    "gmaps": "^0.4.24",
+
   },
   "devDependencies": {
     "webpack-dev-server": "^2.11.1"
