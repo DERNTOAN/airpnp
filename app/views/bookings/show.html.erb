@@ -7,7 +7,7 @@
 
         <h1>Run!</h1>
         <h4>Remaining time:</h4>
-        <h4 id="booking-timer"></h4>
+        <h4 id="booking-timer" data-created=<%= (@booking.created_at.to_f+30*60)*1000 %>></h4>
         <h4>Host:</h4>
         <div class="avatar-container">
           <%= link_to user_path do   %>
