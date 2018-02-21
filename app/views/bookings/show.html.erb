@@ -4,12 +4,21 @@
       <p>map placeholder</p>
 
     </div>
+    <div class="box-booking-show">
+      <div class="booking-show-info">
+        <p>
+          <%= "Booking Time: #{@booking.created_at} " %>
+        </p>
+        <%= "#{@booking.bathroom.address}, #{@booking.bathroom.plz} #{@booking.bathroom.city}"   %>
+      </div>
 
-    <div class="booking-show-info">
-      <p>
-      <%= "Booking Time: #{@booking.created_at} " %>
-      </p>
-      <%= "#{@booking.bathroom.address}, #{@booking.bathroom.plz} #{@booking.bathroom.city}"   %>
+      <div class="booking-show-bathroom">
+        <%=cl_image_tag(@booking.bathroom.photo, width: 400, height: 200, crop: :fill, class: "bath-pic")%>
+        <div class="booking-host">
+          <%= cl_image_tag( @booking.bathroom.user.photo, :crop => :fill) %>
+        </div>
+      </div>
     </div>
+
   </div>
 </div>
