@@ -1,5 +1,6 @@
 class Bathroom < ApplicationRecord
   mount_uploader :photo, PhotoUploader
+  :complete_address
   belongs_to :user
   has_many :bookings
 
@@ -13,6 +14,9 @@ class Bathroom < ApplicationRecord
   validates :photo, presence: true
   validates :price, presence: true
   validates :user, presence: :true
-
   validates :description, presence: true
+
+  def complete_address
+    address + " " + plz + " " + city
+  end
 end

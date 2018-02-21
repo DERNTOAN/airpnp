@@ -1,0 +1,48 @@
+.flex-center{
+  display:flex;
+  justify-content:center;
+
+}
+
+.directions{
+  background-color: grey;
+  width: 100%;
+  height: calc( 70vh - 70px);
+}
+
+.sub-container{
+  width: 100%;
+}
+
+.box-booking-show{
+  display:grid;
+  width:100%;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr minmax(0,1fr);
+  grid-template-areas:
+  "info bathroom";
+
+  @media (max-width: 500px) {
+    grid-template-columns: auto;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+    "info"
+    "bathroom";
+  }
+
+  .bath-pic{
+    max-width:100%;
+    position: relative;
+    float: right;
+  }
+}
+
+.booking-show-bathroom{
+  grid-area: bathroom;
+  position: relative;
+}
+
+.booking-show-info{
+  grid-area: info;
+  padding: 8px 16px;
+}
