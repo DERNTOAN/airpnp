@@ -4,32 +4,45 @@
 
   <div class="container">
 
-      <h1 class="text-center">
-        Available Bathrooms
-      </h1>
+    <h1 class="text-center">
+      Available Bathrooms
+    </h1>
+
+    <div class="filter-bar">
+      <form action="">
+        <label for="baby">Baby</label>
+        <input type="checkbox" name="baby">
+        <label for="handicapped">Handicapped</label>
+        <input type="checkbox" name="handicapped">
+        <label for="bidet">Bidet</label>
+        <input type="checkbox" name="bidet">
+        <label for="baby">Baby</label>
+        <input type="checkbox" name="baby">
+        <label for="style">Style:</label>
+        <select name="style">
+          <option value="all">All</option>
+          <option value="western">Western</option>
+          <option value="japanese">Japanese</option>
+          <option value="turkish">Turkish</option>
+        </select>
+      </form>
+    </div>
 
     <div class="available-bathrooms">
 
       <div class="card-container">
-
         <% @bathrooms.each do |bathroom| %>
-
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path(bathroom.photo, height: 400, width: 400, crop: :fit) %> );">
-
-          <div class="card-category">Popular</div>
-          <div class="card-description">
-            <%= link_to bathroom_path(bathroom), class:"card-link" do %>
-            <h2>
-              <%= bathroom.title %>
-            </h2>
-            <% end %>
-            <p>Address: <%= link_to bathroom.address, bathroom_path(bathroom) %></p>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path(bathroom.photo, height: 400, width: 400, crop: :fit) %> );">
+            <div class="card-category">Popular
+            </div>
+            <div class="card-description">
+              <%= link_to bathroom_path(bathroom), class:"card-link" do %><h2><%= bathroom.title %></h2><% end %>
+              <p>Address: <%= link_to bathroom.address, bathroom_path(bathroom) %></p>
+            </div>
+            <%= cl_image_tag(bathroom.user.photo, height: 400, width: 400, crop: :fit, class: "card-user") %>
           </div>
-          <%= cl_image_tag(bathroom.user.photo, height: 400, width: 400, crop: :fit, class: "card-user") %>
-
-        </div>
-
         <% end %>
+
       </div>
 
       <div id="map" class="map-container" style='width: 100%; height: 100%;'></div>
