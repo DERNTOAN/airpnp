@@ -8,6 +8,10 @@ import { countdownTimer } from '../bookings/show';
 
 import { filterBar, applyFilter } from '../bathroom/index';
 
+
+import  {searchTest, feature} from '../bathroom/algoliasearch';
+
 countdownTimer();
 filterBar();
-
+feature();
+searchTest();

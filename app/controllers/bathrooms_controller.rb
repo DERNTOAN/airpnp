@@ -2,6 +2,7 @@ class BathroomsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
+    Bathroom.reindex
     @bathrooms = policy_scope(Bathroom) #.near(current_user.address, 3)
     @bathrooms = @bathrooms.where.not(latitude: nil, longitude: nil)
 
