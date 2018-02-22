@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get 'reviews/create'
 
+  put 'location_update', to: 'users#update_location', as: 'location_update'
+
   resources :bathrooms, only: [:new, :create, :show, :index] do
     resources :bookings, only: [:new, :create, :show, :index]
     resources :reviews, only: [:new, :create, :show, :index]

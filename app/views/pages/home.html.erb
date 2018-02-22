@@ -1,1 +1,35 @@
 <%= render "shared/banner" %>
+
+<script>
+  if (window.navigator.geolocation) {
+    var failure, success;
+    success = function(position) {
+      console.log(position);
+      fetch("<%= location_update_path %>", {
+        headers: { "Content-Type": "application/json" },
+        credentials: 'same-origin',
+        method: 'PUT',
+        body: JSON.stringify({
+          current_location: { latitude: position.coords.latitude, longitude: position.coords.longitude }
+        })
+          // send the position to controller method and store this params into session
+        });
+    }
+    failure = function(message) {
+      console.log(message);
+      fetch("<%= location_update_path %>", {
+        headers: { "Content-Type": "application/json" },
+        credentials: 'same-origin',
+        method: 'PUT',
+        body: JSON.stringify({
+          current_location: { latitude: 52.507278, longitude: 13.391548 }
+        })
+      });
+    }
+    navigator.geolocation.getCurrentPosition(success, failure, {
+      maximumAge: Infinity,
+      timeout: 5000
+    });
+  }
+</script>
+
