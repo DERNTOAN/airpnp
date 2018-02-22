@@ -38,7 +38,7 @@
           <% string = Bathroom.class_string(bathroom) %>
            <div class="col-xs-12 col-md-6">
 
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.2)0%, rgba(0,0,0,0.0)20%, rgba(0,0,0,0.0)80%, rgba(0,102,153,1.0)100%),url(<%= cl_image_path(bathroom.photo, height: 400, width: 400, crop: :fit) %>);" <%= string %>>
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.2)0%, rgba(0,0,0,0.0)20%, rgba(0,0,0,0.0)75%, rgba(0,102,153,0.4)100%),url(<%= cl_image_path(bathroom.photo, height: 400, width: 400, crop: :fit) %>);" <%= string %>>
               <div class="card-category"><%= bathroom.price.fdiv(100) %>€</div>
               <div class="white-card-background"></div>
               <div class="card-description">
