@@ -1,9 +1,13 @@
 class Bathroom < ApplicationRecord
-  include AlgoliaSearch
+  include Filterable
 
-  algoliasearch do
-    add_attribute :complete_address
-  end
+  include PgSearch
+  pg_search_scope :search_for_index,
+    against: [ :price, :handicapped, :style, :toilet_paper, :wipes, :baby, :bidet],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
+
 
   mount_uploader :photo, PhotoUploader
   belongs_to :user

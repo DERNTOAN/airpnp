@@ -1,5 +1,6 @@
 json.array! @bathrooms do |bathroom|
-  json.extract! bathroom, :address, :description, :price, :handicapped, :style, :toilet_paper, :wipes
+  p params[:baby]
+  json.extract! bathroom, :address, :description, :price, :handicapped, :style, :toilet_paper, :wipes, :latitude, :longitude
 end
 
     # t.string "address"

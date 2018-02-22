@@ -4,6 +4,10 @@ class BathroomsController < ApplicationController
   def index
     @bathrooms = policy_scope(Bathroom) #.near(current_user.address, 3)
     @bathrooms = @bathrooms.where.not(latitude: nil, longitude: nil)
+    # if params
+    #     @bathrooms = Bathroom.filter(bathroom_params)
+
+    # end
     @user_location = request.location
     @markers = @bathrooms.map do |bathroom|
       {

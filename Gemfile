@@ -21,7 +21,7 @@ gem "geocoder"
 
 gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
-gem "algoliasearch-rails"
+gem 'pg_search'
 gem 'faker'
 
 

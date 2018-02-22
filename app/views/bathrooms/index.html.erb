@@ -8,8 +8,28 @@
       Available Bathrooms
     </h1>
 
+<%= simple_form_for @bathroom, remote: true do |f| %>
+  <%= f.input :price  %>
+    <%= f.label :baby %>
 
+  <%= f.input_field :baby, as: :boolean, label_html: { id: 'baby' } %>
+    <%= f.label :handicapped %>
 
+  <%= f.input_field :handicapped, as: :boolean %>
+    <%= f.label :bidet %>
+
+  <%= f.input_field :bidet, as: :boolean %>
+      <%= f.label :style %>
+
+  <%= f.select :style, collection: %w(western turkish japanese) %>
+
+<% end %>
+<button id="search-btn" class="btn btn-primary">
+  submit
+
+</button>
+
+<!--
     <div class="filter-bar">
       <form action="">
         <label for="search">search</label>
@@ -32,7 +52,7 @@
       </form>
     </div>
 
-
+ -->
     <div class="available-bathrooms">
 
       <div class="card-container">

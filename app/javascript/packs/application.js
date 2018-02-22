@@ -6,12 +6,11 @@ import "../bookings/show"
 // import { confirmBooking } from '../components/alert';
 import { countdownTimer } from '../bookings/show';
 
-import { filterBar, applyFilter } from '../bathroom/index';
+import { newFilter, filterBar, applyFilter } from '../bathroom/index';
 
 
 import  {searchTest, feature} from '../bathroom/algoliasearch';
 
 countdownTimer();
-filterBar();
-feature();
-searchTest();
+// filterBar();
+newFilter()
