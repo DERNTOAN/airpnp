@@ -12,7 +12,7 @@
         <div class="where-info">
 
           <p>
-            <%= @booking.bathroom.address %>, <%= @booking.bathroom.plz %>, <%= @booking.bathroom.city %></p>
+            <%= @booking.bathroom.address %></p>
 
           </div>
 
@@ -49,90 +49,92 @@
 
           </div>
 
-          <!-- MINUTE -->
-        <div class="clock">
-          <div class="numbers">
-            <p class="minutes"></p>
-            <p class="placeholder">88</p>
-          </div>
 
-          <div class="colon">
-            <p>:</p>
-          </div>
+          <div class="countdown-digital">
+            <!-- MINUTE -->
+            <div class="clock">
+              <div class="numbers">
+                <p class="minutes"></p>
+                <p class="placeholder">88</p>
+              </div>
 
-          <!-- SECOND -->
-          <div class="numbers">
-            <p class="seconds"></p>
-            <p class="placeholder">88</p>
-          </div>
-        </div>
+              <div class="colon">
+                <p>:</p>
+              </div>
 
-
-      </div>
-
-      <div class="bathroom-info">
-        <p class = "uptag"><%= @booking.bathroom.style.upcase %> TOILET IN <%= @booking.bathroom.city.upcase %> </p>
-        <div class="bathroom-head">
-
-          <div class="main-infos">
-            <h1 class="title"><%= @booking.bathroom.title %></h1>
-            <p class = "distance">600 m</p>
+              <!-- SECOND -->
+              <div class="numbers">
+                <p class="seconds"></p>
+                <p class="placeholder">88</p>
+              </div>
+            </div>
           </div>
 
         </div>
 
-        <div class="bathroom-properties">
-          <i class="fas fa-hand-paper"></i>
+        <div class="bathroom-info">
+          <p class = "uptag"><%= @booking.bathroom.style.upcase %> TOILET IN <%= @booking.bathroom.city.upcase %> </p>
+          <div class="bathroom-head">
 
-        </i>  <span><%= @booking.bathroom.toilet_paper %> layers toilet paper</span>
+            <div class="main-infos">
+              <h1 class="title"><%= @booking.bathroom.title %></h1>
+              <p class = "distance">600 m</p>
+            </div>
 
-        <span>
+          </div>
 
-          <i class="fab fa-accessible-icon"></i>  <span><%= @booking.bathroom.handicapped ? "accessible" : "not for persons with limited mobility" %></span>
-        </span>
-        <span>
+          <div class="bathroom-properties">
+            <i class="fas fa-hand-paper"></i>
 
-          <%  if @booking.bathroom.baby %>
-          <i class="fas fa-bug"></i> <span>"Babies welcome"</span>
-          <% end %>
-        </span>
+          </i>  <span><%= @booking.bathroom.toilet_paper %> layers toilet paper</span>
 
-        <span>
+          <span>
 
-          <%  if @booking.bathroom.wipes %>
-          <i class="fas fa-bug"></i><span>"Wipes"</span>
-          <% end %>
-        </span>
+            <i class="fab fa-accessible-icon"></i>  <span><%= @booking.bathroom.handicapped ? "accessible" : "not for persons with limited mobility" %></span>
+          </span>
+          <span>
 
-        <span>
+            <%  if @booking.bathroom.baby %>
+            <i class="fas fa-bug"></i> <span>"Babies welcome"</span>
+            <% end %>
+          </span>
 
-          <%  if @booking.bathroom.bidet %>
-          <i class="fas fa-bug"></i><span>"Bidet"</span>
-          <% end %>
-        </span>
-      </div>
+          <span>
 
-      <div class="bathroom-description">
+            <%  if @booking.bathroom.wipes %>
+            <i class="fas fa-bug"></i><span>"Wipes"</span>
+            <% end %>
+          </span>
 
-       <p><%= @booking.bathroom.description %></p>
+          <span>
 
+            <%  if @booking.bathroom.bidet %>
+            <i class="fas fa-bug"></i><span>"Bidet"</span>
+            <% end %>
+          </span>
+        </div>
+
+        <div class="bathroom-description">
+
+         <p><%= @booking.bathroom.description %></p>
+
+       </div>
      </div>
+
+
+     <div
+     id="map"
+     style="width: 100%; height: 400px;"
+     data-markers="<%= @markers.to_json %>"
+     data-user_marker="<%= @user_marker.to_json %>"
+     class="bathroom-map"
+     >
+
+
+     <%= link_to "Don't like this bathroom? Swipe back", bathrooms_path, class: "btn btn-danger" %>
+
    </div>
-
-
-   <div
-   id="map"
-   style="width: 100%; height: 400px;"
-   data-markers="<%= @markers.to_json %>"
-   data-user_marker="<%= @user_marker.to_json %>"
-   class="bathroom-map"
-   >
-
-
-   <%= link_to "Don't like this bathroom? Swipe back", bathrooms_path, class: "btn btn-danger" %>
-
  </div>
-</div>
 
 
 
