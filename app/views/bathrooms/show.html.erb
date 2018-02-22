@@ -23,32 +23,35 @@
         </div>
 
         <div class="bathroom-properties">
-          <i class="fas fa-hand-paper"></i>
+          <i class="fas fa-align-justify"></i>
 
-        </i>  <span><%= @bathroom.toilet_paper %> layers toilet paper</span>
+        </i>  <span><%= @bathroom.toilet_paper %>-ply paper</span>
 
         <span>
-
-          <i class="fab fa-accessible-icon"></i>  <span><%= @bathroom.handicapped ? "accessible" : "not for persons with limited mobility" %></span>
+            <%  if @bathroom.baby %>
+            <i class="fab fa-accessible-icon"></i> <span>Accessible</span>
+            <% end %>
         </span>
+
+
         <span>
 
           <%  if @bathroom.baby %>
-          <i class="fas fa-bug"></i> <span>"Babies welcome"</span>
+          <i class="fas fa-bug"></i> <span>Babies welcome</span>
           <% end %>
         </span>
 
         <span>
 
           <%  if @bathroom.wipes %>
-          <i class="fas fa-bug"></i><span>"Wipes"</span>
+          <i class="far fa-sticky-note"></i><span>Wipes available</span>
           <% end %>
         </span>
 
         <span>
 
           <%  if @bathroom.bidet %>
-          <i class="fas fa-bug"></i><span>"Bidet"</span>
+          <i class="fas fa-bath"></i><span>Bidet available</span>
           <% end %>
         </span>
 
@@ -77,17 +80,18 @@
 
   </div>
 
-  <div class="bathroom-photo">
-    <%= cl_image_tag @bathroom.photo, height: 600, width: 800, crop: :fill %>
-    <%= link_to "See photos", "#", class: "photos-link btn btn-danger" %>
-  </div>
 
-  <div
-  id="map"
-  style="width: 100%; height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  class="bathroom-map"
-  >
+    <div class="bathroom-photo">
+      <%= cl_image_tag @bathroom.photo, height: 600, width: 800, crop: :fill %>
+<!--         <%= link_to "See photos", "#", class: "photos-link btn btn-danger" %>-->    </div>
+
+    <div
+    id="map"
+    style="width: 100%; height: 600px;"
+    data-markers="<%= @markers.to_json %>"
+    data-user_marker="<%= @user_marker.to_json %>"
+    class="bathroom-map"
+    >
 
 
   <%= link_to "Don't like this bathroom? Swipe back", bathrooms_path, class: "btn btn-danger" %>

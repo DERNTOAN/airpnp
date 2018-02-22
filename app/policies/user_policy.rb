@@ -14,4 +14,8 @@ class UserPolicy < ApplicationPolicy
   def update?
     true
   end
+
+  def update_location?
+    true
+  end
 end
