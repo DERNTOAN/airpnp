@@ -1,13 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'reviews/index'
-
-  get 'reviews/show'
-
-  get 'reviews/new'
-
-  get 'reviews/create'
-
   resources :bathrooms, only: [:new, :create, :show, :index] do
     resources :bookings, only: [:new, :create, :show, :index]
     resources :reviews, only: [:new, :create, :show, :index]

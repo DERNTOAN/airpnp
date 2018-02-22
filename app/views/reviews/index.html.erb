@@ -1,2 +1,17 @@
-<h1>Reviews#index</h1>
-<p>Find me in app/views/reviews/index.html.erb</p>
+<%= @bathroom.average %>
+
+
+
+
+<% @reviews.each do |review| %>
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+    <h2><%= review.content %></h2>
+    <% review.rating.times do %>
+    <i class="fa fa-star"></i>
+    <% end %>
+    <hr>
+  </div>
+</div>
+<% end %>
+
