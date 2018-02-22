@@ -17,13 +17,12 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
-gem 'faker'
 gem "geocoder"
-
-
 
 gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
+gem 'pg_search'
+gem 'faker'
 
 
 

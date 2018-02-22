@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+
+    namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :bathrooms, only: [ :index ]
+    end
+  end
+
   put 'location_update', to: 'users#update_location', as: 'location_update'
 
  resources :bathrooms, only: [:new, :create, :show, :index] do

@@ -1,3 +1,72 @@
+
+
+function newFilter() {
+document.getElementById("search-btn").addEventListener("click", (event) => {
+const form = document.querySelector("form")
+let query = ""
+form.querySelectorAll('input').forEach((element) => {
+if (element['id']) {
+  query = query + element['id'].substring(9) + "=" + element['value'] + "&"
+console.log(query)
+}
+
+
+});
+  fetch("http://localhost:3000/api/v1/bathrooms?" + query)
+  .then(response => response.json())
+  .then((data) => {
+console.log(data)
+
+
+    // console.log(data);
+  });
+});
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function applyFilter(dataset_dummy){
   const cards = document.querySelectorAll(".card");
   let c_show = cards;
@@ -48,4 +117,4 @@ function applyFilter(dataset_dummy){
   }
 }
 
-export {filterBar, applyFilter};
+export {newFilter, filterBar, applyFilter};

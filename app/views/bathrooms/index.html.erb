@@ -8,8 +8,30 @@
       Available Bathrooms
     </h1>
 
+<%= simple_form_for @bathroom, method: :get do |f| %>
+  <%= f.input :price  %>
+    <%= f.label :baby %>
+
+  <%= f.input_field :baby, as: :boolean %>
+    <%= f.label :handicapped %>
+
+  <%= f.input_field :handicapped, as: :boolean %>
+    <%= f.label :bidet %>
+
+  <%= f.input_field :bidet, as: :boolean %>
+      <%= f.label :style %>
+
+  <%= f.select :style, collection: %w(western turkish japanese) %>
+      <%= f.submit "submit" %>
+
+<% end %>
+
+
+<!--
     <div class="filter-bar">
       <form action="">
+        <label for="search">search</label>
+        <input type="input" id="search" name="search">
         <label for="baby">Baby</label>
         <input type="checkbox" name="baby">
         <label for="handicapped">Handicapped</label>
@@ -28,9 +50,11 @@
       </form>
     </div>
 
+ -->
+
     <div class="available-bathrooms">
 
-      <div class="card-container">
+      <card-container class="card-container">
         <div class="row">
 
           <% @bathrooms.each do |bathroom| %>
@@ -55,7 +79,7 @@
 
           <% end %>
         </div>
-      </div>
+      </card-container>
 
       <div
       id="map" class="map-container"
