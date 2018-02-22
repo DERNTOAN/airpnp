@@ -9,6 +9,7 @@
   transition: all 0.5s ease;
   padding: 5px 5px;
   color:white;
+  border-radius:5px;
 }
 .card-user {
   position: absolute;
@@ -24,6 +25,8 @@
   left: 10px;
   font-size: 24px;
   text-transform: uppercase;
+  font-weight: 700;
+
 }
 .card-description {
   position: absolute;
@@ -32,11 +35,13 @@
 }
 .card-description h2 {
   font-size: 24px;
+    font-weight: 100;
+
 }
 .card-description p {
   font-size: 16px;
   opacity: 0.8;
-  font-weight: lighter;
+  font-weight: 100;
 }
 .card-link {
   position: absolute;
