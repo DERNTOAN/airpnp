@@ -1,38 +1,20 @@
 .card {
-  @media (min-width: 320px) {
   height: 175px;
-  min-width: 300px;
-  width: 100px
-
-}
-@media (min-width: 768px) {
-  height: 175px;
-  min-width: 300px;
-}
-@media (min-width: 992px) {
-  height: 150px;
-  min-width: 250px;
-}
-@media (min-width: 1200px) {
-  height: 175px;
-  min-width: 300px;
-}
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
   color: white;
   position: relative;
-  background-size: cover;
-  background-position: center;
-
+  margin: 8px 4px;
+  box-shadow: 0px 0px 8px grey;
 }
-
 .card-user {
   position: absolute;
   right: 10px;
   top: 10px;
   width: 40px;
   border-radius: 50%;
+  background-color: white;
 }
 .card-category {
   position: absolute;
@@ -56,11 +38,97 @@
 }
 .card-link {
   position: absolute;
-  bottom: 40px;
-  color: white;
-  text-decoration: none;
-
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  background: black;
+  opacity: 0;
 }
 .card-link:hover {
   opacity: 0.1;
 }
+
+
+// .card {
+//   @media (min-width: 320px) {
+//   height: 175px;
+//   min-width: 300px;
+//   width: 100px
+
+// }
+// @media (min-width: 768px) {
+//   height: 175px;
+//   min-width: 300px;
+// }
+// @media (min-width: 992px) {
+//   height: 150px;
+//   min-width: 250px;
+// }
+// @media (min-width: 1200px) {
+//   height: 175px;
+//   min-width: 300px;
+// }
+//   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+//   background-size: cover !important;
+//   background-position: center;
+//   color: white;
+//   position: relative;
+//   background-size: cover;
+//   background-position: center;
+
+// }
+
+// .card-user {
+//   position: absolute;
+//   right: 10px;
+//   top: 10px;
+//   width: 40px;
+//   border-radius: 50%;
+// }
+// .card-category {
+//   position: absolute;
+//   top: 10px;
+//   left: 10px;
+//   font-size: 15px;
+//   text-transform: uppercase;
+// }
+// .card-description {
+//   position: absolute;
+//   bottom: 10px;
+//   left: 10px;
+// }
+// .card-description h2 {
+//   font-size: 24px;
+// }
+// .card-description p {
+//   font-size: 14px;
+//   opacity: 0.7;
+//   font-weight: lighter;
+// }
+// .card-link {
+//   position: absolute;
+//   bottom: 40px;
+//   color: white;
+//   text-decoration: none;
+
+// }
+// .card-link:hover {
+//   opacity: 0.1;
+// }
+
+// .card-text{
+//   visibility:hidden;
+//   opacity:0;
+//   background-color: rgba(0,0,0,1);
+//   height:100%;
+//   width:100%;
+//   transition: all 0.5s ease;
+// }
+
+// .card:hover .card-text{
+//   visibility:visible;
+//   opacity:1;
+// }
+
