@@ -19,6 +19,7 @@ class BathroomsController < ApplicationController
       lng: @user_location.longitude,
       icon: 'user-marker.png'
     }
+    raise
   end
 
   def show
