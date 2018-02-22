@@ -20,7 +20,7 @@ class ReviewsController < ApplicationController
       redirect_to bathroom_path(@review.bathroom)
     else
       render :new
-
+    end
   end
 
   private
