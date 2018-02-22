@@ -9,7 +9,8 @@ class BathroomsController < ApplicationController
       {
         lat: bathroom.latitude,
         lng: bathroom.longitude,
-        icon: 'toilet-marker.png'
+        icon: 'toilet-marker.png',
+        draggable: false,
         # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
       }
     end
@@ -26,14 +27,16 @@ class BathroomsController < ApplicationController
       [{
         lat: @bathroom.latitude,
         lng: @bathroom.longitude,
-        icon: '/toilet-marker.png'
+        icon: '/toilet-marker.png',
+        draggable: false
         # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
       }]
     @user_location = request.location
     @user_marker = {
       lat: @user_location.latitude,
       lng: @user_location.longitude,
-      icon: '/user-marker.png'
+
+      icon: '/user-marker.png',
     }
     @owner = @bathroom.user
     @booking = Booking.new
