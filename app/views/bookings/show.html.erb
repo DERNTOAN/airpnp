@@ -7,53 +7,65 @@
 
 
 
-          <h1 class="run">Run!</h1>
+        <h1 class="run">Run!</h1>
 
-<div class="where-info">
+        <div class="where-info">
 
-<p>
-<%= @booking.bathroom.address %>, <%= @booking.bathroom.plz %>, <%= @booking.bathroom.city %></p>
+          <p>
+            <%= @booking.bathroom.address %>, <%= @booking.bathroom.plz %>, <%= @booking.bathroom.city %></p>
 
-</div>
-
-
-<div class="user-info-vt">
-<p>
-  Host: <%= @booking.bathroom.user.first_name %> <%= @booking.bathroom.user.last_name %>
-</p>
+          </div>
 
 
-
-</div>
-
-<div class="text-time">
-
-
-<p>
-  <strong>
-  don't waste your time buddy
-  </strong>
-</p>
-<p>
-<em>
-
-(not like your host would care) :
-</em>
-</p>
-
-</div>
-
-<div class="timer">
-
-        <h4 id="booking-timer" data-created=<%= (@booking.created_at.to_f+30*60)*1000 %>></h4>
-
-</div>
+          <div class="user-info-vt">
+            <p>
+              Host: <%= @booking.bathroom.user.first_name %> <%= @booking.bathroom.user.last_name %>
+            </p>
 
 
 
+          </div>
+
+          <div class="text-time">
 
 
+            <p>
+              <strong>
+                don't waste your time buddy
+              </strong>
+            </p>
+            <p>
+              <em>
 
+                (not like your host would care) :
+              </em>
+            </p>
+
+          </div>
+
+          <div class="timer">
+
+            <h4 id="booking-timer" data-created=<%= (@booking.created_at.to_f+30*60)*1000 %>></h4>
+
+          </div>
+
+          <!-- MINUTE -->
+        <div class="clock">
+          <div class="numbers">
+            <p class="minutes"></p>
+            <p class="placeholder">88</p>
+          </div>
+
+          <div class="colon">
+            <p>:</p>
+          </div>
+
+          <!-- SECOND -->
+          <div class="numbers">
+            <p class="seconds"></p>
+            <p class="placeholder">88</p>
+          </div>
+        </div>
 
 
       </div>
@@ -110,7 +122,7 @@
 
    <div
    id="map"
-   style="width: 100%; height: 600px;"
+   style="width: 100%; height: 400px;"
    data-markers="<%= @markers.to_json %>"
    data-user_marker="<%= @user_marker.to_json %>"
    class="bathroom-map"
@@ -121,7 +133,6 @@
 
  </div>
 </div>
-
 
 
 
