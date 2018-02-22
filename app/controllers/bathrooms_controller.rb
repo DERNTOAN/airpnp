@@ -4,7 +4,7 @@ class BathroomsController < ApplicationController
   def index
     @bathrooms = policy_scope(Bathroom) #.near(current_user.address, 3)
     @bathrooms = @bathrooms.where.not(latitude: nil, longitude: nil)
-    @user_location = request.location
+    @user_location = session[:user_coordinates]
     @markers = @bathrooms.map do |bathroom|
       {
         lat: bathroom.latitude,
@@ -15,8 +15,8 @@ class BathroomsController < ApplicationController
       }
     end
     @user_marker = {
-      lat: @user_location.latitude,
-      lng: @user_location.longitude,
+      lat: @user_location["latitude"],
+      lng: @user_location["longitude"],
       icon: 'user-marker.png'
     }
   end
@@ -33,8 +33,8 @@ class BathroomsController < ApplicationController
       }]
     @user_location = request.location
     @user_marker = {
-      lat: @user_location.latitude,
-      lng: @user_location.longitude,
+      lat: @user_location["latitude"],
+      lng: @user_location["longitude"],
 
       icon: '/user-marker.png',
     }
