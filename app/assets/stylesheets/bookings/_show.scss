@@ -64,21 +64,22 @@ a {
 
 
   .booking-info {
+    border:2px solid darkgrey;
+    background-color: white;
+    box-shadow: 3px 3px 5px lightgrey;
     grid-area: booking-info;
     display: grid;
-    background-color: #f9f9f9;
-    border-radius: 5px;
+    border-radius: 8px;
     width: 100%;
     padding: 15px;
     grid-template-rows: repeat(3, auto);
     grid-template-columns: auto auto 1fr;
     grid-gap: 1rem;
     align-items: center;
-  grid-template-areas:
+    grid-template-areas:
     "run where where"
     "run user user"
     "text-time text-time timer";
-
   .run {
     margin-top: 0px;
     grid-area: run;
@@ -124,13 +125,10 @@ p {
     font-size: 15px
   }
 }
-.timer {
+.countdown-digital {
   justify-self: center;
   grid-area: timer;
-  p {
-    font-size: 24px;
-    font-weight: bold;
-  }
+
 }
 
 

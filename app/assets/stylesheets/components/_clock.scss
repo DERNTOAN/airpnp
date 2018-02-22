@@ -1,0 +1,41 @@
+@font-face {
+  font-family: 'digital-7';
+  src: asset-url('digital-7.ttf');
+}
+
+/* CLOCK */
+
+div.clock {
+  margin: 5px 0;
+  border:2px solid black;
+  padding: 4px 10px 0px 15px;
+  border-radius: 18px;
+  min-width:150px;
+  background-color: $secondary;//#333232;
+  box-shadow: 5px 5px 10px black;
+}
+
+div.clock div {
+  display: inline-block;
+  position: relative;
+  font-family: 'digital-7';
+  src: asset-url('digital-7.ttf');
+}
+
+div.clock div p {
+  margin:0;
+  padding:0;
+  font-size: 48px;
+  position: relative;
+  z-index: 100;
+  color:#ff2c2c;
+}
+
+div.clock .placeholder {
+  color: $main;
+  position: absolute;
+  top: 0;
+  z-index: 50;
+}
+
+div.clock .meridian { margin-left: 15px; }/*END CLOCK*/
