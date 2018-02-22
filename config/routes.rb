@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+-  put 'location_update', to: 'users#update_location', as: 'location_update'
 
  resources :bathrooms, only: [:new, :create, :show, :index] do
     resources :bookings, only: [:new, :create, :show, :index]
