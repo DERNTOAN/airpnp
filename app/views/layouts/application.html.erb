@@ -19,6 +19,7 @@
 <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
   <%= javascript_pack_tag "map" %>
   <%= javascript_pack_tag "clock" %>
+  <%= javascript_include_tag src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js" %>
 
 </body>
 </html>

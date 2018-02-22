@@ -1,16 +1,14 @@
 Rails.application.routes.draw do
 
-  get 'reviews/index'
-
-  get 'reviews/show'
-
-  get 'reviews/new'
-
-  get 'reviews/create'
+    namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :bathrooms, only: [ :index ]
+    end
+  end
 
   put 'location_update', to: 'users#update_location', as: 'location_update'
 
-  resources :bathrooms, only: [:new, :create, :show, :index] do
+ resources :bathrooms, only: [:new, :create, :show, :index] do
     resources :bookings, only: [:new, :create, :show, :index]
     resources :reviews, only: [:new, :create, :show, :index]
   end

@@ -11,6 +11,7 @@
 
         <div class="where-info">
 
+
           <p>
             <%= @booking.bathroom.address %></p>
 
@@ -40,6 +41,7 @@
                 (not like your host would care) :
               </em>
             </p>
+
 
           </div>
 
@@ -130,9 +132,8 @@
      class="bathroom-map"
      >
 
-
      <%= link_to "Don't like this bathroom? Swipe back", bathrooms_path, class: "btn btn-danger" %>
-
+     <%= @bathroom.average %>
    </div>
  </div>
 

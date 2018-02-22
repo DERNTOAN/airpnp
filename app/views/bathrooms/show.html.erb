@@ -54,27 +54,32 @@
           <i class="fas fa-bath"></i><span>Bidet available</span>
           <% end %>
         </span>
+
+
+
+
       </div>
 
       <div class="bathroom-description">
 
-         <p><%= @bathroom.description %></p>
+       <p><%= @bathroom.description %></p>
 
-      </div>
+     </div>
 
-      <%= link_to bathroom_bookings_path(@bathroom), method: :post do %>
-<button id="AJAXIFY THIS ON FRIDAY" class="btn btn-danger btn-lg btn-block">
+     <%= link_to bathroom_bookings_path(@bathroom), method: :post do %>
+     <button id="AJAXIFY THIS ON FRIDAY" class="btn btn-danger btn-lg btn-block">
 
-  Book this bathroom for <%= @bathroom.price.to_f/100 %> €
+      Book this bathroom for <%= @bathroom.price.to_f/100 %> €
 
-</button>
+    </button>
 
-<% end %>
-
-
+    <% end %>
 
 
-    </div>
+
+
+  </div>
+
 
     <div class="bathroom-photo">
       <%= cl_image_tag @bathroom.photo, height: 600, width: 800, crop: :fill %>
@@ -91,8 +96,18 @@
 
   <%= link_to "Don't like this bathroom? Swipe back", bathrooms_path, class: "btn btn-danger" %>
 
-  </div>
 </div>
+</div>
+
+
+
+<div class="review"><%= link_to "See Reviews", bathroom_reviews_path(@bathroom) %></div>
+
+
+<p>Average Rating:  <% @bathroom.average.to_i.times do %>
+<i class="fa fa-star"></i>
+<% end %></p>
+
 
 
 
