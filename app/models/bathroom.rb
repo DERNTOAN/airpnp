@@ -1,5 +1,5 @@
 class Bathroom < ApplicationRecord
-  # include Filterable
+  include Filterable
 
   include PgSearch
   pg_search_scope :search_for_index,
