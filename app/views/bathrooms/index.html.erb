@@ -34,7 +34,8 @@
       <div class="card-container">
         <div class="row">
 
-        <% @bathrooms.each do |bathroom| %>
+          <% @bathrooms.each do |bathroom| %>
+
           <% string = Bathroom.class_string(bathroom) %>
            <div class="col-xs-12 col-md-6">
 
@@ -44,31 +45,34 @@
               <div class="card-description">
                 <h2><%= bathroom.title %></h2>
               </div>
-                <%= cl_image_tag(bathroom.user.photo, class: "card-user") %>
+              <%= cl_image_tag(bathroom.user.photo, class: "card-user") %>
 
               <%= link_to "" ,bathroom_path(bathroom), class:"card-link" %>
+              <!-- </div> -->
+              <%= cl_image_tag(bathroom.user.photo, height: 400, width: 400, crop: :fit, class: "card-user") %>
             </div>
           </div>
-        <% end %>
+          <% end %>
+
+
         </div>
 
 
       </div>
 
-
-        <div
-        id="map" class="map-container"
-        style="min-width: 300px; width: 100%; height: 600px;"
-        data-markers="<%= @markers.to_json %>">
-      </div>
-
-
+      <div
+      id="map" class="map-container"
+      style="min-width: 300px; width: 100%; height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      data-user_marker="<%= @user_marker.to_json %>">
     </div>
-
-    <!-- might need styling, see _index.scss -->
-
-
   </div>
+
+  <!-- might need styling, see _index.scss -->
+
+
+</div>
+
 </div>
 
 
