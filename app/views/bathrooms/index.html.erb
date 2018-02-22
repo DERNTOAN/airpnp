@@ -2,7 +2,7 @@
 <div class="wrapper">
 
 
-      <div class="container">
+  <div class="container">
 
     <h1 class="text-center">
       Available Bathrooms
@@ -33,38 +33,50 @@
     </div>
 
 
-            <div class="available-bathrooms">
+    <div class="available-bathrooms">
 
       <div class="card-container">
-        <% @bathrooms.each do |bathroom| %>
+        <div class="row">
+
+          <% @bathrooms.each do |bathroom| %>
+
           <% string = Bathroom.class_string(bathroom) %>
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path(bathroom.photo, height: 400, width: 400, crop: :fit) %> );" <%= string %>>
-            <div class="card-category">Popular
+           <div class="col-xs-12 col-md-6">
+
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.2)0%, rgba(0,0,0,0.0)20%, rgba(0,0,0,0.0)75%, rgba(0,102,153,0.4)100%),url(<%= cl_image_path(bathroom.photo, height: 400, width: 400, crop: :fit) %>);" <%= string %>>
+              <div class="card-category"><%= bathroom.price.fdiv(100) %>€</div>
+              <div class="white-card-background"></div>
+              <div class="card-description">
+                <h2><%= bathroom.title %></h2>
+              </div>
+              <%= cl_image_tag(bathroom.user.photo, class: "card-user") %>
+
+              <%= link_to "" ,bathroom_path(bathroom), class:"card-link" %>
+              <!-- </div> -->
+              <%= cl_image_tag(bathroom.user.photo, height: 400, width: 400, crop: :fit, class: "card-user") %>
             </div>
-            <div class="card-description">
-              <%= link_to bathroom_path(bathroom), class:"card-link" do %><h2><%= bathroom.title %></h2><% end %>
-              <p>Address: <%= link_to bathroom.address, bathroom_path(bathroom) %></p>
-            </div>
-            <%= cl_image_tag(bathroom.user.photo, height: 400, width: 400, crop: :fit, class: "card-user") %>
           </div>
-        <% end %>
+          <% end %>
+
+
+        </div>
+
 
       </div>
 
-
-                  <div
-                  id="map" class="map-container"
-                  style="min-width: 300px; width: 100%; height: 600px;"
-                  data-markers="<%= @markers.to_json %>">
-                </div>
-
-
-          </div>
-
-      <!-- might need styling, see _index.scss -->
-
-
+      <div
+      id="map" class="map-container"
+      style="min-width: 300px; width: 100%; height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      data-user_marker="<%= @user_marker.to_json %>">
     </div>
+  </div>
+
+  <!-- might need styling, see _index.scss -->
+
+
+</div>
+
 </div>
 
 
