@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   end
 
   def update_location
-    authorize current_user
+    # authorize current_user
     session[:user_coordinates] = params[:current_location]
     if session[:user_coordinates]
       render json: {message: "Yeaay"}
