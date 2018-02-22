@@ -27,10 +27,13 @@ class Bathroom < ApplicationRecord
 
   def average
     sum = []
+    return 0 if self.reviews.empty?
     self.reviews.each do |review|
       sum << review.rating
     end
+
     average = ((sum.sum).fdiv(sum.count))
+    # raise
     return average
   end
 end
