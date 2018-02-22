@@ -40,6 +40,7 @@
     grid-area: map;
     background-color: grey;
     min-height: 300px;
+    box-shadow: 0px 0px 8px grey;
       @media (min-width: 320px) {
 max-height: 300px;
 }
@@ -57,25 +58,26 @@ max-height: 100vh;
   .card-container {
 
     grid-area: cards;
-    display: grid;
-    grid-gap: 1rem;
+    width:100%;
+    // display: grid;
+    // grid-gap: 1rem;
 
-    @media (min-width: 320px) {
-      grid-template-columns: auto;
-    }
-    @media (min-width: 768px) {
-      grid-template-columns: auto;
+    // @media (min-width: 320px) {
+    //   grid-template-columns: auto;
+    // }
+    // @media (min-width: 768px) {
+    //   grid-template-columns: auto;
 
-    }
+    // }
 
-    @media (min-width: 992px) {
-      grid-template-columns: repeat(2,minmax(0,1fr));
+    // @media (min-width: 992px) {
+    //   grid-template-columns: repeat(2,minmax(0,1fr));
 
-    }
+    // }
 
-    @media (min-width: 1200px) {
-      grid-template-columns: repeat(2,minmax(0,1fr));
-    }
+    // @media (min-width: 1200px) {
+    //   grid-template-columns: repeat(2,minmax(0,1fr));
+    // }
 
   }
 
