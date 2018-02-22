@@ -19,5 +19,18 @@
 @import "bookings/index";
 @import "bookings/show";
 body{
-  background-color: $secondary;
+  color:rgba(0,0,0,0.5)
+}
+
+h1{
+  font-size:30px;
+  color:rgba(0,0,0,0.7)
+}
+
+h2{
+  font-size: 24px;
+}
+
+.dropdown-toggle{
+  color:white;
 }
