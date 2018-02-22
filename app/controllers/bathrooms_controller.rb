@@ -8,13 +8,15 @@ class BathroomsController < ApplicationController
     @markers = @bathrooms.map do |bathroom|
       {
         lat: bathroom.latitude,
-        lng: bathroom.longitude#,
+        lng: bathroom.longitude,
+        icon: 'toilet-marker.png'
         # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
       }
     end
     @user_marker = {
       lat: @user_location.latitude,
-      lng: @user_location.longitude
+      lng: @user_location.longitude,
+      icon: 'user-marker.png'
     }
   end
 
