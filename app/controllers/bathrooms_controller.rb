@@ -4,14 +4,20 @@ class BathroomsController < ApplicationController
   def index
     @bathrooms = policy_scope(Bathroom) #.near(current_user.address, 3)
     @bathrooms = @bathrooms.where.not(latitude: nil, longitude: nil)
-
+    @user_location = request.location
     @markers = @bathrooms.map do |bathroom|
       {
         lat: bathroom.latitude,
-        lng: bathroom.longitude#,
+        lng: bathroom.longitude,
+        icon: 'toilet-marker.png'
         # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
       }
     end
+    @user_marker = {
+      lat: @user_location.latitude,
+      lng: @user_location.longitude,
+      icon: 'user-marker.png'
+    }
   end
 
   def show
@@ -19,10 +25,16 @@ class BathroomsController < ApplicationController
     @markers =
       [{
         lat: @bathroom.latitude,
-        lng: @bathroom.longitude
+        lng: @bathroom.longitude,
+        icon: '/toilet-marker.png'
         # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
       }]
-
+    @user_location = request.location
+    @user_marker = {
+      lat: @user_location.latitude,
+      lng: @user_location.longitude,
+      icon: '/user-marker.png'
+    }
     @owner = @bathroom.user
     @booking = Booking.new
     @booking.user = current_user

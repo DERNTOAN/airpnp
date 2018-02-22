@@ -23,6 +23,11 @@ class BookingsController < ApplicationController
     require 'date'
     @booking = Booking.find(params[:id])
     @owner = @booking.bathroom.user
+    @user_location = request.location
+    @user_marker = {
+      lat: @user_location.latitude,
+      lng: @user_location.longitude
+    }
     @markers =
       [{
         lat: @booking.bathroom.latitude,
