@@ -51,12 +51,15 @@
 
           </div>
 
+          <div "flush">
+            <a href=<%= "#{new_bathroom_review_path}" %> class="btn btn-default flush-button" data-reviewpath=<%= new_bathroom_review_path %>>FLUSH</a>
+          </div>
 
           <div class="countdown-digital">
             <!-- MINUTE -->
             <div class="clock">
               <div class="numbers">
-                <p class="minutes"></p>
+                <p class="minutes">00</p>
                 <p class="placeholder">88</p>
               </div>
 
@@ -66,13 +69,15 @@
 
               <!-- SECOND -->
               <div class="numbers">
-                <p class="seconds"></p>
+                <p class="seconds">00</p>
                 <p class="placeholder">88</p>
               </div>
             </div>
           </div>
 
         </div>
+
+
 
         <div class="bathroom-info">
           <p class = "uptag"><%= @booking.bathroom.style.upcase %> TOILET IN <%= @booking.bathroom.city.upcase %> </p>
@@ -86,56 +91,55 @@
           </div>
 
           <div class="bathroom-properties">
-            <i class="fas fa-hand-paper"></i>
+            <i class="fas fa-align-justify"></i>
+            <span><%= @bathroom.toilet_paper %>-ply paper</span>
+            <span>
+              <%  if @bathroom.handicapped %>
+              <i class="fab fa-accessible-icon"></i>
+              <span>Accessible</span>
+              <% end %>
+            </span>
+            <span>
 
-          </i>  <span><%= @booking.bathroom.toilet_paper %> layers toilet paper</span>
+              <%  if @bathroom.baby %>
+              <i class="fas fa-child"></i> <span>Babies welcome</span>
+              <% end %>
+            </span>
 
-          <span>
+            <span>
+              <%  if @bathroom.wipes %>
+              <i class="far fa-sticky-note"></i><span>Wipes available</span>
+              <% end %>
+            </span>
 
-            <i class="fab fa-accessible-icon"></i>  <span><%= @booking.bathroom.handicapped ? "accessible" : "not for persons with limited mobility" %></span>
-          </span>
-          <span>
+            <span>
+              <%  if @bathroom.bidet %>
+              <i class="fas fa-bath"></i><span>Bidet available</span>
+              <% end %>
+            </span>
 
-            <%  if @booking.bathroom.baby %>
-            <i class="fas fa-bug"></i> <span>"Babies welcome"</span>
-            <% end %>
-          </span>
+          </div>
 
-          <span>
+          <div class="bathroom-description">
 
-            <%  if @booking.bathroom.wipes %>
-            <i class="fas fa-bug"></i><span>"Wipes"</span>
-            <% end %>
-          </span>
+           <p><%= @booking.bathroom.description %></p>
 
-          <span>
-
-            <%  if @booking.bathroom.bidet %>
-            <i class="fas fa-bug"></i><span>"Bidet"</span>
-            <% end %>
-          </span>
-        </div>
-
-        <div class="bathroom-description">
-
-         <p><%= @booking.bathroom.description %></p>
-
+         </div>
        </div>
+
+
+       <div
+       id="map"
+       style="width: 100%; height: 400px;"
+       data-markers="<%= @markers.to_json %>"
+       data-user_marker="<%= @user_marker.to_json %>"
+       class="bathroom-map"
+       >
+
+       <%= link_to "Don't like this bathroom? Swipe back", bathrooms_path, class: "btn btn-danger" %>
+       <%= @bathroom.average %>
      </div>
-
-
-     <div
-     id="map"
-     style="width: 100%; height: 400px;"
-     data-markers="<%= @markers.to_json %>"
-     data-user_marker="<%= @user_marker.to_json %>"
-     class="bathroom-map"
-     >
-
-     <%= link_to "Don't like this bathroom? Swipe back", bathrooms_path, class: "btn btn-danger" %>
-     <%= @bathroom.average %>
    </div>
- </div>
 
 
 
