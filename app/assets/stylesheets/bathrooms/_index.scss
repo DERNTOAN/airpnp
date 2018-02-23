@@ -1,3 +1,5 @@
+
+
 .available-bathrooms {
   justify-self: center;
   display: grid;
@@ -5,33 +7,61 @@
   align-items: top;
   grid-gap: 1rem;
   @media (min-width: 320px) {
-    grid-template-rows: 1fr auto;
+    grid-template-rows: 1fr auto auto;
     grid-template-areas:
     "map"
+    "search"
     "cards";
   }
   @media (min-width: 768px) {
     grid-template-columns: 2fr minmax(0,2fr);
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: auto 1fr;
     grid-template-areas:
-    "cards map"
+    "search map"
     "cards map";
   }
   @media (min-width: 992px) {
     grid-template-columns: 3fr minmax(0,2fr);
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: auto 1fr;
     grid-template-areas:
-    "cards map"
+    "search map"
     "cards map";
   }
   @media (min-width: 1200px) {
     grid-template-columns: 3fr minmax(0, 2fr);
-    grid-template-rows: minmax(0,500px) 1fr;
+    grid-template-rows: auto 1fr;
     grid-template-areas:
-    "cards map"
+    "search map"
     "cards map";
   }
 
+  .search-grid {
+    grid-area: search;
+    justify-self: center;
+      width: 100%;
+
+    .search-options {
+    background-color: #fcfcfc;
+    border-radius: 5px;
+    padding: 10px;
+  .options {
+    margin-bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .submit {
+      background-color: #00587A;
+    }
+  }
+      h4 {
+        font-size: 20px;
+        font-weight: bold;
+        color: #00587A;
+      }
+
+
+    }
+  }
   .title {
     grid-area: title;
   }
@@ -41,13 +71,13 @@
     background-color: grey;
     min-height: 300px;
     box-shadow: 0px 0px 8px lightgrey;
-      @media (min-width: 320px) {
-max-height: 300px;
-}
+    @media (min-width: 320px) {
+      max-height: 300px;
+    }
 
-      @media (min-width: 768px) {
-max-height: 100vh;
-}
+    @media (min-width: 768px) {
+      max-height: 100vh;
+    }
 
     #map {
       width:100%;
