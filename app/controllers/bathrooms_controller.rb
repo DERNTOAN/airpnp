@@ -15,7 +15,7 @@ class BathroomsController < ApplicationController
       end
     end
     @user_location = session[:user_coordinates]
-    @bathrooms = @bathrooms.near([@user_location["latitude"],@user_location["longitude"]], 0.5)
+    # @bathrooms = @bathrooms.near([@user_location["latitude"],@user_location["longitude"]], 0.5)
     @markers = @bathrooms.map do |bathroom|
       {
         lat: bathroom.latitude,
