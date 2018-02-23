@@ -65,6 +65,9 @@ class BathroomsController < ApplicationController
     @booking = Booking.new
     @booking.user = current_user
     # authorize @booking
+
+
+    @last_reviews = Review.where("bathroom_id = #{@bathroom.id}").order(id: :desc).limit(3).reverse
     authorize @bathroom
   end
 
