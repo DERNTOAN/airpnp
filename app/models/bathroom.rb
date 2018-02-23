@@ -46,4 +46,14 @@ class Bathroom < ApplicationRecord
     # raise
     return average
   end
+
+
 end
+
+
+
+
+
+
+
+
