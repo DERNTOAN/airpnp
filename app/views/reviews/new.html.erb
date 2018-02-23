@@ -1,12 +1,17 @@
-<div class="container">
 
-  <div class="row">
-    <div class="col-xs-12 col-md-6 col-md-offset-3">
+<div class="wrapper-review">
+        <%= cl_image_tag @bathroom.photo, height: 300, width: 414, crop: :fill %>
+  <div class="container">
+<h1 class="text-center review-title">Leave a comment</h1>
+
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
         <%= simple_form_for [@bathroom, @review] do |f| %>
-        <%= f.input :content %>
+        <%= f.input :content, label: "Your comment" %>
         <%= f.input :rating, collection: 1..5 %>
         <%= f.submit "Add review", class: "btn btn-primary" %>
         <% end %>
+      </div>
     </div>
   </div>
 </div>
