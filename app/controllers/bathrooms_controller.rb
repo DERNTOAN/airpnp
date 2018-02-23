@@ -18,10 +18,9 @@ class BathroomsController < ApplicationController
         if key == "style" && value != "western"
           @bathrooms = @bathrooms.where('style = ?', "#{value}")
         end
-        if (%w(handicapped baby bidet).include? key) && value == "1"
+        if (%w(handicapped baby bidet wipes).include? key) && value == "1"
           @bathrooms = @bathrooms.where("#{key} = ?", true)
         end
-
       end
     end
 

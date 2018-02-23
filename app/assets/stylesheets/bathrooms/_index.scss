@@ -47,12 +47,13 @@
   .options {
     margin-bottom: 0;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     .submit {
       background-color: #00587A;
     }
   }
+
       h4 {
         font-size: 20px;
         font-weight: bold;

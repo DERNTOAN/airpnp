@@ -35,87 +35,103 @@
   -->
 
   <div class="available-bathrooms">
-<div class="search-grid">
-  <div class="filter-form">
+    <div class="search-grid">
+      <div class="filter-form">
 
-<div class="search-options">
-<h4>Options</h4>
-    <%= simple_form_for @bathroom, method: :get, html: { class: 'form-inline' }  do |f| %>
-    <div class="form-group">
+        <div class="search-options">
+          <h4>Options</h4>
+          <%= simple_form_for @bathroom, method: :get, html: { class: 'form-inline' }  do |f| %>
+          <div class="form-group">
 
-    <%= f.input :price, label: false, placeholder: "maximum budget"  %>
+            <%= f.input :price, label: false, placeholder: "maximum budget"  %>
 
-</div>
-<div class="form-group options">
-    <div>
-    <%= f.label :handicapped  %>
-    <%= f.input_field :handicapped, as: :boolean %>
-  </div>
-  <div>
+          </div>
+          <div class="form-group options">
+            <div>
+              <%= f.label :handicapped  %>
+              <%= f.input_field :handicapped, as: :boolean %>
+            </div>
+            <div>
 
-    <%= f.label :baby  %>
-    <%= f.input_field :baby, as: :boolean %>
-  </div>
-<div>
-    <%= f.label :bidet %>
-    <%= f.input_field :bidet, as: :boolean %>
+              <%= f.label :baby  %>
+              <%= f.input_field :baby, as: :boolean %>
+            </div>
+            <div>
+              <%= f.label :bidet %>
+              <%= f.input_field :bidet, as: :boolean %>
 
-</div>
-<div class="form-group options">
-    <%= f.submit "submit", class:"btn btn-primary submit" %>
-</div>
-</div>
+            </div>
+            <div>
+              <%= f.label :wipes %>
+              <%= f.input_field :wipes, as: :boolean %>
 
-
-</div>
-    <% end %>
-
-  </div>
-</div>
-    <card-container class="card-container">
-      <div class="row">
-
-        <% @bathrooms.each do |bathroom| %>
-
-        <% string = Bathroom.class_string(bathroom) %>
-        <div class="col-xs-12 col-md-6">
-
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.6)0%, rgba(0,0,0,0.0)25%, rgba(0,0,0,0.2)75%, rgba(0,0,0,0.8)100%),url(<%= cl_image_path(bathroom.photo, height: 400, width: 400, crop: :fit) %>);" <%= string %>>
-            <div class="card-category"><%= bathroom.price.fdiv(100) %>€</div>
-            <div class="white-card-background"></div>
-            <div class="card-description">
-              <h2><%= bathroom.title %></h2>
-              <p>
-                <% average = bathroom.average %>
-                <% average.to_i.times do %>
-                <i class="fa fa-star"></i>
-                <% end %>
-                <% if (average - average.to_i) > 0.3  %>
-                  <i class="fa fa-star-half"></i>
-                <% end %>
-              </p>
             </div>
 
-            <%= cl_image_tag(bathroom.user.photo, class: "card-user") %>
 
-            <%= link_to "" ,bathroom_path(bathroom), class:"card-link" %>
-            <!-- </div> -->
-            <%= cl_image_tag(bathroom.user.photo, height: 400, width: 400, crop: :fit, class: "card-user") %>
           </div>
+            <div class="form-group options">
+
+              <div>
+              <%= f.label :style %>
+               <%= f.select :style, style: %w(western turkish japanese) %>
+
+              <%= f.label :paper %>
+               <%= f.select :toilet_paper, toilet_paper: [1,2,3,4,5] %>
+
+            <%= f.submit "submit", class:"btn btn-primary submit" %>
+             </div>
+           </div>
         </div>
 
 
-        <% end %>
-      </div>
-    </card-container>
+      <% end %>
 
-    <div
-      id="map" class="map-container"
-      style="min-width: 300px; width: 100%; height: 600px;"
-      data-markers="<%= @markers.to_json %>"
-      data-user_marker="<%= @user_marker.to_json %>"
-      data-user_location="<%= @user_location.to_json %>">
     </div>
+  </div>
+  <card-container class="card-container">
+    <div class="row">
+
+      <% @bathrooms.each do |bathroom| %>
+
+      <% string = Bathroom.class_string(bathroom) %>
+      <div class="col-xs-12 col-md-6">
+
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.6)0%, rgba(0,0,0,0.0)25%, rgba(0,0,0,0.2)75%, rgba(0,0,0,0.8)100%),url(<%= cl_image_path(bathroom.photo, height: 400, width: 400, crop: :fit) %>);" <%= string %>>
+          <div class="card-category"><%= bathroom.price.fdiv(100) %>€</div>
+          <div class="white-card-background"></div>
+          <div class="card-description">
+            <h2><%= bathroom.title %></h2>
+            <p>
+              <% average = bathroom.average %>
+              <% average.to_i.times do %>
+              <i class="fa fa-star"></i>
+              <% end %>
+              <% if (average - average.to_i) > 0.3  %>
+              <i class="fa fa-star-half"></i>
+              <% end %>
+            </p>
+          </div>
+
+          <%= cl_image_tag(bathroom.user.photo, class: "card-user") %>
+
+          <%= link_to "" ,bathroom_path(bathroom), class:"card-link" %>
+          <!-- </div> -->
+          <%= cl_image_tag(bathroom.user.photo, height: 400, width: 400, crop: :fit, class: "card-user") %>
+        </div>
+      </div>
+
+
+      <% end %>
+    </div>
+  </card-container>
+
+  <div
+  id="map" class="map-container"
+  style="min-width: 300px; width: 100%; height: 600px;"
+  data-markers="<%= @markers.to_json %>"
+  data-user_marker="<%= @user_marker.to_json %>"
+  data-user_location="<%= @user_location.to_json %>">
+</div>
 </div>
 
 <!-- might need styling, see _index.scss -->
