@@ -28,9 +28,9 @@
         </i>  <span><%= @bathroom.toilet_paper %>-ply paper</span>
 
         <span>
-            <%  if @bathroom.baby %>
-            <i class="fab fa-accessible-icon"></i> <span>Accessible</span>
-            <% end %>
+          <%  if @bathroom.baby %>
+          <i class="fab fa-accessible-icon"></i> <span>Accessible</span>
+          <% end %>
         </span>
 
 
@@ -81,9 +81,9 @@
   </div>
 
 
-    <div class="bathroom-photo">
-      <%= cl_image_tag @bathroom.photo, height: 600, width: 800, crop: :fill %>
-<!--         <%= link_to "See photos", "#", class: "photos-link btn btn-danger" %>-->    </div>
+  <div class="bathroom-photo">
+    <%= cl_image_tag @bathroom.photo, height: 600, width: 800, crop: :fill %>
+    <!--         <%= link_to "See photos", "#", class: "photos-link btn btn-danger" %>-->    </div>
 
     <div
     id="map"
@@ -94,9 +94,9 @@
     >
 
 
-  <%= link_to "Don't like this bathroom? Swipe back", bathrooms_path, class: "btn btn-danger" %>
+    <%= link_to "Don't like this bathroom? Swipe back", bathrooms_path, class: "btn btn-danger" %>
 
-</div>
+  </div>
 </div>
 
 
@@ -105,8 +105,21 @@
 
 
 <p>Average Rating:  <% @bathroom.average.to_i.times do %>
-<i class="fa fa-star"></i>
-<% end %></p>
+  <i class="fa fa-star"></i>
+  <% end %></p>
+
+  <% @bathroom.reviews.each do |review|%>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h2> <%= review.content %> </h2>
+      <% review.rating.times do %>
+      <i class="fa fa-star"></i>
+      <% end %>
+    </div>
+  </div>
+      <% end %>
+
+
 
 
 
