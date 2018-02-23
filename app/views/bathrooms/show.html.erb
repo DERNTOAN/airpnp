@@ -18,6 +18,7 @@
 
         <div class="bathroom-properties">
           <i class="fas fa-align-justify"></i>
+
           <span><%= @bathroom.toilet_paper %>-ply paper</span>
           <span>
             <%  if @bathroom.handicapped %>
@@ -96,8 +97,15 @@
   <i class="fa fa-star"></i>
   <% end %></p>
 
-
-
-
+  <% @bathroom.reviews.each do |review|%>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h2> <%= review.content %> </h2>
+      <% review.rating.times do %>
+      <i class="fa fa-star"></i>
+      <% end %>
+    </div>
+  </div>
+      <% end %>
 
 

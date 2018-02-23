@@ -47,6 +47,14 @@ class Bathroom < ApplicationRecord
     return average
   end
 
+  # def reviews_show
+  #   self.reviews.each do |review|
+  #     review.content
+  #     review.rating
+  #   end
+
+  # end
+
 
 end
 
