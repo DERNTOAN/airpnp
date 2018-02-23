@@ -6,8 +6,14 @@
         <p class = "uptag"><%= @bathroom.style.upcase %> TOILET IN <%= @bathroom.city.upcase %> </p>
         <div class="bathroom-head">
           <div class="main-infos">
-            <h1 class="title"><%= @bathroom.title %></h1>
-            <p class = "distance">600 m</p>
+            <h1 class="title"><%= @bathroom.title %>  </h1>
+            <h2><% @bathroom.average.to_i.times do %>
+                <i class="fa fa-star"></i>
+                <% end %>
+              <% if (@bathroom.average - @bathroom.average.to_i) > 0.3  %>
+                  <i class="fa fa-star-half"></i>
+                <% end %>
+              </h2>
           </div>
           <div class="avatar-container">
             <%= link_to "#" do   %>
@@ -83,32 +89,35 @@
       >
 
 
-      <%= link_to "Don't like this bathroom? Swipe back", bathrooms_path, class: "btn btn-danger" %>
 
     </div>
   </div>
 
 
 
-  <div class="review"><%= link_to "See Reviews", bathroom_reviews_path(@bathroom) %></div>
 
 
-  <p>Average Rating:  <% @bathroom.average.to_i.times do %>
-    <i class="fa fa-star"></i>
-    <% end %></p>
+<div class="container">
 
-    <% @bathroom.reviews.each do |review|%>
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-        <% if review.user%>
-        <h2><%= review.user.last_name %></h2>
-        <% end %>
-        <h2> <%= review.content %> </h2>
-        <% review.rating.times do %>
-        <i class="fa fa-star"></i>
-        <% end %>
-      </div>
-    </div>
-    <% end %>
+  <div class="review-box">
+    <% @last_reviews.each do |review|%>
+        <div class="review-field">
+          <div class="review-user">
+            <% if review.user%>
+              <%= cl_image_tag("http://res.cloudinary.com/dlv6654pn/image/upload/v1519307166/eglowf7ha8u4cgonrc8j.png", class:"avatar review-avatar")%>
+              <!-- <h2><%= review.user.first_name %> <%= review.user.last_name %></h2> -->
+            <% end %>
+          </div>
+          <div class="review-details">
+            <p> <%= review.content %> </p>
+            <% review.rating.times do %>
+              <i class="fa fa-star"></i>
+            <% end %>
+          </div>
+        </div>
+<% end %>
+</div>
 
+  <div class="review"><%= link_to "See All Reviews", bathroom_reviews_path(@bathroom) %></div>
 
+</div>
