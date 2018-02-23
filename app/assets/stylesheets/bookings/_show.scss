@@ -178,8 +178,11 @@ p {
       align-items:center;
       display: flex;
       flex-wrap: wrap;
-      font-size: 12px;
-
+      font-size: 18px;
+      // background-color:lightgrey;
+      border: solid 2px lightgrey;
+      border-radius: 5px;
+      padding: 5px 10px;
       span {
         padding: 3px;
       }
