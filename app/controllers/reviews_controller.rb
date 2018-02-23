@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   def index
-    @reviews = policy_scope(Review)
+    @reviews = policy_scope(Review).where("bathroom_id = #{params[:bathroom_id]}")
     # @review = Review.find(params[:id])
     @bathroom = Bathroom.find(params[:bathroom_id])
     # @average = @reviews.ratings.sum/(@reviews.ratings.count)
