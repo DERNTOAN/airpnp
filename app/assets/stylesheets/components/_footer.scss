@@ -1,6 +1,3 @@
-
-
-
 .footer {
   background: #00587A;
   display: flex;
@@ -13,6 +10,7 @@
 .footer-links {
   display: flex;
   align-items: center;
+  margin-left: -40px;
 
 }
 .footer-links a {
@@ -24,9 +22,7 @@
 
 }
 
-.footer .fa-heart {
-  color: white;
-}
+
 
 .footer-copyright {
   color: white;
