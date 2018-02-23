@@ -8,23 +8,23 @@
       Available Bathrooms
     </h1>
 
-<%= simple_form_for @bathroom, method: :get do |f| %>
-  <%= f.input :price  %>
+    <%= simple_form_for @bathroom, method: :get do |f| %>
+    <%= f.input :price  %>
     <%= f.label :baby %>
 
-  <%= f.input_field :baby, as: :boolean %>
+    <%= f.input_field :baby, as: :boolean %>
     <%= f.label :handicapped %>
 
-  <%= f.input_field :handicapped, as: :boolean %>
+    <%= f.input_field :handicapped, as: :boolean %>
     <%= f.label :bidet %>
 
-  <%= f.input_field :bidet, as: :boolean %>
-      <%= f.label :style %>
+    <%= f.input_field :bidet, as: :boolean %>
+    <%= f.label :style %>
 
-  <%= f.select :style, collection: %w(western turkish japanese) %>
-      <%= f.submit "submit" %>
+    <%= f.select :style, collection: %w(western turkish japanese) %>
+    <%= f.submit "submit" %>
 
-<% end %>
+    <% end %>
 
 
 <!--
@@ -50,46 +50,55 @@
       </form>
     </div>
 
- -->
+  -->
 
-    <div class="available-bathrooms">
+  <div class="available-bathrooms">
 
-      <card-container class="card-container">
-        <div class="row">
+    <card-container class="card-container">
+      <div class="row">
 
-          <% @bathrooms.each do |bathroom| %>
+        <% @bathrooms.each do |bathroom| %>
 
-          <% string = Bathroom.class_string(bathroom) %>
-          <div class="col-xs-12 col-md-6">
+        <% string = Bathroom.class_string(bathroom) %>
+        <div class="col-xs-12 col-md-6">
 
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.6)0%, rgba(0,0,0,0.0)25%, rgba(0,0,0,0.2)75%, rgba(0,0,0,0.8)100%),url(<%= cl_image_path(bathroom.photo, height: 400, width: 400, crop: :fit) %>);" <%= string %>>
-              <div class="card-category"><%= bathroom.price.fdiv(100) %>€</div>
-              <div class="white-card-background"></div>
-              <div class="card-description">
-                <h2><%= bathroom.title %></h2>
-              </div>
-
-              <%= cl_image_tag(bathroom.user.photo, class: "card-user") %>
-
-              <%= link_to "" ,bathroom_path(bathroom), class:"card-link" %>
-              <!-- </div> -->
-              <%= cl_image_tag(bathroom.user.photo, height: 400, width: 400, crop: :fit, class: "card-user") %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.6)0%, rgba(0,0,0,0.0)25%, rgba(0,0,0,0.2)75%, rgba(0,0,0,0.8)100%),url(<%= cl_image_path(bathroom.photo, height: 400, width: 400, crop: :fit) %>);" <%= string %>>
+            <div class="card-category"><%= bathroom.price.fdiv(100) %>€</div>
+            <div class="white-card-background"></div>
+            <div class="card-description">
+              <h2><%= bathroom.title %></h2>
+              <p>
+                <% average = bathroom.average %>
+                <% average.to_i.times do %>
+                <i class="fa fa-star"></i>
+                <% end %>
+                <% if (average - average.to_i) > 0.3  %>
+                  <i class="fa fa-star-half"></i>
+                <% end %>
+              </p>
             </div>
+
+            <%= cl_image_tag(bathroom.user.photo, class: "card-user") %>
+
+            <%= link_to "" ,bathroom_path(bathroom), class:"card-link" %>
+            <!-- </div> -->
+            <%= cl_image_tag(bathroom.user.photo, height: 400, width: 400, crop: :fit, class: "card-user") %>
           </div>
-
-          <% end %>
         </div>
-      </card-container>
 
-      <div
-      id="map" class="map-container"
-      style="min-width: 300px; width: 100%; height: 600px;"
-      data-markers="<%= @markers.to_json %>"
-      data-user_marker="<%= @user_marker.to_json %>">
-    </div>
+        <% end %>
+      </div>
+    </card-container>
+
+    <div
+    id="map" class="map-container"
+    style="min-width: 300px; width: 100%; height: 600px;"
+    data-markers="<%= @markers.to_json %>"
+    data-user_marker="<%= @user_marker.to_json %>">
   </div>
+</div>
 
-  <!-- might need styling, see _index.scss -->
+<!-- might need styling, see _index.scss -->
 
 
 </div>
