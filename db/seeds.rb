@@ -19,10 +19,10 @@
 #   user.save
 # end
 
+Review.destroy_all
 Booking.destroy_all
 Bathroom.destroy_all
 User.destroy_all
-Review.destroy_all
 
 i = 0
 
@@ -108,7 +108,7 @@ reviews = [
   gender = ["male", "female", "other"].sample
   age = (18..70).to_a.sample
   user = User.new(first_name: first_name, last_name: last_name, email: email, password: password, gender: gender, age: age)
-  user.remote_photo_url = Faker::Fillmurray.image
+  user.remote_photo_url = Faker::Avatar.image
   user.save
 
   address = western_addresses[i][:address]
@@ -141,7 +141,7 @@ i = 0
   gender = ["male", "female", "other"].sample
   age = (18..70).to_a.sample
   user = User.new(first_name: first_name, last_name: last_name, email: email, password: password, gender: gender, age: age)
-  user.remote_photo_url = Faker::Fillmurray.image
+  user.remote_photo_url = Faker::Avatar.image
   user.save
 
   address = japanese_addresses[i][:address]
@@ -174,7 +174,7 @@ i = 0
   gender = ["male", "female", "other"].sample
   age = (18..70).to_a.sample
   user = User.new(first_name: first_name, last_name: last_name, email: email, password: password, gender: gender, age: age)
-  user.remote_photo_url = Faker::Fillmurray.image
+  user.remote_photo_url = Faker::Avatar.image
   user.save
 
   address = turkish_addresses[i][:address]
@@ -205,7 +205,9 @@ email = "castellanton@gmail.com"
 password = "123456"
 gender = "male"
 age = 29
-photo = Faker::Fillmurray.image
+user = User.new(first_name: first_name, last_name: last_name, email: email, password: password, gender: gender, age: age)
+user.remote_photo_url = Faker::Fillmurray.image
+user.save
 
 title = "Cozy and clean toilet near Checkpoint Charlie"
 address = "Charlottenstr. 4"
@@ -219,16 +221,19 @@ toilet_paper = 4
 wipes = true
 baby = true
 bidet = false
-user = User.create(first_name: first_name, last_name: last_name, email: email, password: password, gender: gender, age: age, photo: photo)
+b = Bathroom.new(title: title, address: address, plz: plz, city: city, description: description, price: price, handicapped: handicapped, style: style, toilet_paper: toilet_paper, wipes: wipes, baby: baby, bidet: bidet, user: user)
+b.remote_photo_url = "http://res.cloudinary.com/dlv6654pn/image/upload/v1519394418/bath_1.jpg"
+b.save
 
-50.times do
+
+100.times do
   b = Bathroom.all.sample
   u = User.all.sample
   if b.user != u
     r = Review.new(bathroom_id: b.id, user_id: u.id)
     r.content = reviews.sample
     r.rating = (0..5).to_a.sample
-    Review.save
+    r.save
   end
 end
 
