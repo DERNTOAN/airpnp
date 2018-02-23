@@ -128,18 +128,18 @@
        </div>
 
 
-       <div
-       id="map"
-       style="width: 100%; height: 400px;"
-       data-markers="<%= @markers.to_json %>"
-       data-user_marker="<%= @user_marker.to_json %>"
-       class="bathroom-map"
-       >
+     <div
+     id="map"
+     style="width: 100%; height: 400px;"
+     data-markers="<%= @markers.to_json %>"
+     data-user_location="<%= @user_location.to_json %>"
+     class="bathroom-map"
+     >
 
-       <%= link_to "Don't like this bathroom? Swipe back", bathrooms_path, class: "btn btn-danger" %>
-       <%= @bathroom.average %>
+
      </div>
    </div>
 
+       <%= @bathroom.average %>
 
 

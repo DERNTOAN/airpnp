@@ -24,17 +24,21 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @owner = @booking.bathroom.user
     @bathroom = @booking.bathroom
-    @user_location = request.location
-    @user_marker = {
-      lat: @user_location.latitude,
-      lng: @user_location.longitude
-    }
     @markers =
-      [{
-        lat: @booking.bathroom.latitude,
-        lng: @booking.bathroom.longitude
+    [{
+      lat: @bathroom.latitude,
+      lng: @bathroom.longitude,
+      icon: '/toilet-marker.png',
+      draggable: false
         # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
       }]
+    @user_location = session[:user_coordinates]
+    # @user_marker = {
+    #   lat: @user_location["latitude"],
+    #   lng: @user_location["longitude"],
+    #   icon: '/user-marker.png',
+    #   draggable: true
+    #   }
     authorize @booking
   end
 
