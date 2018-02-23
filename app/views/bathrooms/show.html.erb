@@ -104,7 +104,7 @@
         <div class="review-field">
           <div class="review-user">
             <% if review.user%>
-              <%= cl_image_tag("http://res.cloudinary.com/dlv6654pn/image/upload/v1519307166/eglowf7ha8u4cgonrc8j.png", class:"avatar review-avatar")%>
+              <%= cl_image_tag(review.user.photo, class:"avatar review-avatar")%>
               <!-- <h2><%= review.user.first_name %> <%= review.user.last_name %></h2> -->
             <% end %>
           </div>
