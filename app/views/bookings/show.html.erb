@@ -52,7 +52,7 @@
           </div>
 
           <div "flush">
-            <a href="" class="btn btn-default flush-button">FLUSH</a>
+            <a href=<%= "#{new_bathroom_review_path}" %> class="btn btn-default flush-button" data-reviewpath=<%= new_bathroom_review_path %>>FLUSH</a>
           </div>
 
           <div class="countdown-digital">
@@ -94,7 +94,7 @@
             <i class="fas fa-align-justify"></i>
             <span><%= @bathroom.toilet_paper %>-ply paper</span>
             <span>
-              <%  if @bathroom.baby %>
+              <%  if @bathroom.handicapped %>
               <i class="fab fa-accessible-icon"></i>
               <span>Accessible</span>
               <% end %>
@@ -102,7 +102,7 @@
             <span>
 
               <%  if @bathroom.baby %>
-              <i class="fas fa-bug"></i> <span>Babies welcome</span>
+              <i class="fas fa-child"></i> <span>Babies welcome</span>
               <% end %>
             </span>
 

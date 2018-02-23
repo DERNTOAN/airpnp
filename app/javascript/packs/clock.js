@@ -45,10 +45,6 @@ function time(){
     let minutes = date.minutes;
     let seconds = date.seconds;
 
-	// //make clock a 12 hour clock instead of 24 hour clock
-	// hours = (hours > 12) ? (hours - 12) : hours;
-	// hours = (hours === 0) ? 12 : hours;
-
 	//invokes function to make sure number has at least two digits
 	minutes = addZero(minutes);
 	seconds = addZero(seconds);
