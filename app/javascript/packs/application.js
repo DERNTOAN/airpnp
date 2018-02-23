@@ -13,4 +13,4 @@ import { newFilter, filterBar, applyFilter } from '../bathroom/index';
 import  {searchTest, feature} from '../bathroom/algoliasearch';
 
 // filterBar();
-newFilter()
+// newFilter()
