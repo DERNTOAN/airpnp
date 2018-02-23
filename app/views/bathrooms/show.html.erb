@@ -2,63 +2,51 @@
 
   <div class="container">
     <div class="show-bathroom">
-
       <div class="bathroom-info">
-
         <p class = "uptag"><%= @bathroom.style.upcase %> TOILET IN <%= @bathroom.city.upcase %> </p>
         <div class="bathroom-head">
-
           <div class="main-infos">
             <h1 class="title"><%= @bathroom.title %></h1>
             <p class = "distance">600 m</p>
           </div>
-
           <div class="avatar-container">
             <%= link_to "#" do   %>
             <%= cl_image_tag @owner.photo, height: 100, width: 100, crop: :fill, class: "avatar-bordered" %>
             <% end %>
           </div>
-
-
         </div>
 
         <div class="bathroom-properties">
           <i class="fas fa-align-justify"></i>
-
-        </i>  <span><%= @bathroom.toilet_paper %>-ply paper</span>
-
-        <span>
+          <span><%= @bathroom.toilet_paper %>-ply paper</span>
+          <span>
             <%  if @bathroom.baby %>
-            <i class="fab fa-accessible-icon"></i> <span>Accessible</span>
+              <i class="fab fa-accessible-icon"></i>
+              <span>Accessible</span>
             <% end %>
-        </span>
-
-
+          </span>
         <span>
 
-          <%  if @bathroom.baby %>
+        <%  if @bathroom.baby %>
           <i class="fas fa-bug"></i> <span>Babies welcome</span>
           <% end %>
         </span>
 
         <span>
-
           <%  if @bathroom.wipes %>
-          <i class="far fa-sticky-note"></i><span>Wipes available</span>
+            <i class="far fa-sticky-note"></i><span>Wipes available</span>
           <% end %>
         </span>
 
         <span>
-
           <%  if @bathroom.bidet %>
-          <i class="fas fa-bath"></i><span>Bidet available</span>
+            <i class="fas fa-bath"></i><span>Bidet available</span>
           <% end %>
         </span>
 
-
-
-
       </div>
+
+
 
       <div class="bathroom-description">
 
@@ -81,9 +69,9 @@
   </div>
 
 
-    <div class="bathroom-photo">
-      <%= cl_image_tag @bathroom.photo, height: 600, width: 800, crop: :fill %>
-<!--         <%= link_to "See photos", "#", class: "photos-link btn btn-danger" %>-->    </div>
+  <div class="bathroom-photo">
+    <%= cl_image_tag @bathroom.photo, height: 600, width: 800, crop: :fill %>
+    <!--         <%= link_to "See photos", "#", class: "photos-link btn btn-danger" %>-->    </div>
 
     <div
     id="map"
@@ -94,9 +82,9 @@
     >
 
 
-  <%= link_to "Don't like this bathroom? Swipe back", bathrooms_path, class: "btn btn-danger" %>
+    <%= link_to "Don't like this bathroom? Swipe back", bathrooms_path, class: "btn btn-danger" %>
 
-</div>
+  </div>
 </div>
 
 
@@ -105,8 +93,8 @@
 
 
 <p>Average Rating:  <% @bathroom.average.to_i.times do %>
-<i class="fa fa-star"></i>
-<% end %></p>
+  <i class="fa fa-star"></i>
+  <% end %></p>
 
 
 
