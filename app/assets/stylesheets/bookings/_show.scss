@@ -72,65 +72,78 @@ a {
     border-radius: 8px;
     width: 100%;
     padding: 15px;
-    grid-template-rows: repeat(3, auto);
-    grid-template-columns: auto auto 1fr;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
     grid-gap: 1rem;
     align-items: center;
     grid-template-areas:
-    "run where where"
-    "run user user"
-    "text-time text-time timer";
-  .run {
-    margin-top: 0px;
-    grid-area: run;
-  }
-  .where-info {
-    grid-area: where;
-    padding: 15px;
-    padding-bottom:0;
+    "clock"
+    "flush";
+    .run {
+      margin-top: 0px;
+      grid-area: run;
+    }
+    .where-info {
+      grid-area: where;
+      padding: 15px;
+      padding-bottom:0;
+      // background-color: #CCCCCC;
 
-p {
-  font-size: 24px;
-  color: red;
-  margin: 0;
-  font-weight: bold;
-}
-
-
-  }
-
-
-  .user-info-vt {
-    grid-area: user;
-    padding-top:0;
-
-
-    p {
-    font-size: 15px;
-    padding: 15px;
+      p {
+        font-size:16px;
+        margin: 0;
+        font-weight: 200;
       }
 
 
-  }
+    }
 
-.text-time {
-  grid-area: text-time;
-  margin-top: 30px;
-  strong {
-    font-size: 18px;
-    margin: 0;
-  }
 
-  em {
-    font-size: 15px
-  }
-}
-.countdown-digital {
-  justify-self: center;
-  grid-area: timer;
+    .user-info-vt {
+      grid-area: user;
+      padding-top:0;
 
-}
 
+      p {
+        font-size: 15px;
+        padding: 15px;
+      }
+
+
+    }
+
+    .clock-box{
+      display:flex;
+      justify-content:center;
+    }
+    .text-time {
+
+      grid-area: clock;
+      text-align: center;
+      margin-top: 30px;
+      strong {
+        font-size: 18px;
+        margin: 0;
+      }
+
+      em {
+        font-size: 15px
+      }
+    }
+    .countdown-digital {
+
+      justify-self: center;
+      grid-area: timer;
+
+    }
+
+    .flush{
+
+      grid-area:flush;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
 
   }
 
@@ -174,6 +187,7 @@ p {
     }
 
     .bathroom-properties {
+      margin-top:20px;
       max-width: 400px;
       align-items:center;
       display: flex;
@@ -232,3 +246,9 @@ p {
 
 }
 
+
+
+.flush-button{
+  font-size: 24px;
+  border-radius:5px;
+}
