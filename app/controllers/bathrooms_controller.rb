@@ -25,17 +25,7 @@ class BathroomsController < ApplicationController
         # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
       }
     end
-    # @user_marker = {
-    #   lat: @user_location["latitude"],
-    #   lng: @user_location["longitude"],
-    #   icon: '/user-marker.png',
-    #   draggable: true
-    # }
-    # if @user_location
-    #   respond_to do |index|
-    #     index.js
-    #   end
-    # end
+
   end
 
   def show
@@ -50,12 +40,7 @@ class BathroomsController < ApplicationController
 
       }]
     @user_location = session[:user_coordinates]
-    # @user_marker = {
-    #   lat: @user_location["latitude"],
-    #   lng: @user_location["longitude"],
-    #   icon: '/user-marker.png',
-    #   draggable: true
-    #   }
+
     @owner = @bathroom.user
     @booking = Booking.new
     @booking.user = current_user

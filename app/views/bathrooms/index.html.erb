@@ -8,23 +8,7 @@
       Available Bathrooms
     </h1>
 
-    <%= simple_form_for @bathroom, method: :get do |f| %>
-    <%= f.input :price  %>
-    <%= f.label :baby %>
 
-    <%= f.input_field :baby, as: :boolean %>
-    <%= f.label :handicapped %>
-
-    <%= f.input_field :handicapped, as: :boolean %>
-    <%= f.label :bidet %>
-
-    <%= f.input_field :bidet, as: :boolean %>
-    <%= f.label :style %>
-
-    <%= f.select :style, collection: %w(western turkish japanese) %>
-    <%= f.submit "submit" %>
-
-    <% end %>
 
 
 <!--
@@ -53,7 +37,43 @@
   -->
 
   <div class="available-bathrooms">
+<div class="search-grid">
+  <div class="filter-form">
 
+<div class="search-options">
+<h4>Options</h4>
+    <%= simple_form_for @bathroom, method: :get, html: { class: 'form-inline' }  do |f| %>
+    <div class="form-group">
+
+    <%= f.input :price, label: false, placeholder: "maximum budget"  %>
+
+</div>
+<div class="form-group options">
+    <div>
+    <%= f.label :handicapped  %>
+    <%= f.input_field :handicapped, as: :boolean %>
+  </div>
+  <div>
+
+    <%= f.label :baby  %>
+    <%= f.input_field :baby, as: :boolean %>
+  </div>
+<div>
+    <%= f.label :bidet %>
+    <%= f.input_field :bidet, as: :boolean %>
+
+</div>
+<div class="form-group options">
+    <%= f.submit "submit", class:"btn btn-primary submit" %>
+</div>
+</div>
+
+
+</div>
+    <% end %>
+
+  </div>
+</div>
     <card-container class="card-container">
       <div class="row">
 
