@@ -6,74 +6,58 @@
       <div class="booking-info">
 
 
+        <div class="run">
+          <!-- <h1>Run!</h1> -->
+        </div>
 
-        <h1 class="run">Run!</h1>
-
-        <div class="where-info">
-
-
+        <!-- <div class="where-info">
           <p>
             <%= @booking.bathroom.address %></p>
-
-          </div>
-
-
-          <div class="user-info-vt">
-            <p>
-              Host: <%= @booking.bathroom.user.first_name %> <%= @booking.bathroom.user.last_name %>
-            </p>
-
-
-
-          </div>
+            <div class="user-info-vt">
+              <p>
+                Host: <%= @booking.bathroom.user.first_name %> <%= @booking.bathroom.user.last_name %>
+              </p>
+            </div>
+          </div> -->
 
           <div class="text-time">
-
-
             <p>
               <strong>
-                don't waste your time buddy
+                Time left for your booking:
               </strong>
             </p>
-            <p>
-              <em>
-
-                (not like your host would care) :
-              </em>
-            </p>
-
-
-          </div>
-
-          <div class="timer">
 
             <h4 id="booking-timer" data-created=<%= (@booking.created_at.to_f+30*60)*1000 %>></h4>
+            <div class="clock-box">
+              <div class="countdown-digital">
+                <!-- MINUTE -->
+                <div class="clock">
+                  <div class="numbers">
+                    <p class="minutes">00</p>
+                    <p class="placeholder">88</p>
+                  </div>
 
-          </div>
+                  <div class="colon">
+                    <p>:</p>
+                  </div>
 
-          <div "flush">
-            <a href=<%= "#{new_bathroom_review_path}" %> class="btn btn-default flush-button" data-reviewpath=<%= new_bathroom_review_path %>>FLUSH</a>
-          </div>
-
-          <div class="countdown-digital">
-            <!-- MINUTE -->
-            <div class="clock">
-              <div class="numbers">
-                <p class="minutes">00</p>
-                <p class="placeholder">88</p>
-              </div>
-
-              <div class="colon">
-                <p>:</p>
-              </div>
-
-              <!-- SECOND -->
-              <div class="numbers">
-                <p class="seconds">00</p>
-                <p class="placeholder">88</p>
+                  <!-- SECOND -->
+                  <div class="numbers">
+                    <p class="seconds">00</p>
+                    <p class="placeholder">88</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+
+
+
+          <div class="flush">
+            <a href=<%= "#{new_bathroom_review_path}" %> class="btn btn-default flush-button" data-reviewpath=<%= new_bathroom_review_path %>>FLUSH</a>
+          </div>
+
+
 
         </div>
 
@@ -85,7 +69,7 @@
 
             <div class="main-infos">
               <h1 class="title"><%= @booking.bathroom.title %></h1>
-              <p class = "distance">600 m</p>
+              <!-- <p class = "distance">600 m</p> -->
             </div>
 
           </div>
@@ -132,14 +116,11 @@
        id="map"
        style="width: 100%; height: 400px;"
        data-markers="<%= @markers.to_json %>"
-       data-user_marker="<%= @user_marker.to_json %>"
+       data-user_location="<%= @user_location.to_json %>"
        class="bathroom-map"
        >
 
-       <%= link_to "Don't like this bathroom? Swipe back", bathrooms_path, class: "btn btn-danger" %>
-       <%= @bathroom.average %>
+
      </div>
    </div>
-
-
 

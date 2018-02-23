@@ -26,20 +26,27 @@ class BathroomsController < ApplicationController
     end
 
     @user_location = session[:user_coordinates]
+    # @bathrooms = @bathrooms.near([@user_location["latitude"],@user_location["longitude"]], 0.5)
     @markers = @bathrooms.map do |bathroom|
       {
         lat: bathroom.latitude,
         lng: bathroom.longitude,
         icon: 'toilet-marker.png',
-        draggable: false,
+        draggable: false
         # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
       }
     end
-    @user_marker = {
-      lat: @user_location["latitude"],
-      lng: @user_location["longitude"],
-      icon: 'user-marker.png'
-    }
+    # @user_marker = {
+    #   lat: @user_location["latitude"],
+    #   lng: @user_location["longitude"],
+    #   icon: '/user-marker.png',
+    #   draggable: true
+    # }
+    # if @user_location
+    #   respond_to do |index|
+    #     index.js
+    #   end
+    # end
   end
 
   def show
@@ -51,18 +58,12 @@ class BathroomsController < ApplicationController
       icon: '/toilet-marker.png',
       draggable: false
         # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }]
+    @user_location = session[:user_coordinates]
 
-        }]
-        @user_location = session[:user_coordinates]
-        @user_marker = {
-          lat: @user_location["latitude"],
-          lng: @user_location["longitude"],
-
-          icon: '/user-marker.png',
-        }
-        @owner = @bathroom.user
-        @booking = Booking.new
-        @booking.user = current_user
+    @owner = @bathroom.user
+    @booking = Booking.new
+    @booking.user = current_user
     # authorize @booking
     authorize @bathroom
   end

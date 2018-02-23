@@ -21,6 +21,8 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.bathroom = Bathroom.find(params[:bathroom_id])
+    @review.user = current_user
+
     authorize @review
     if @review.save
       redirect_to bathroom_path(@review.bathroom)
