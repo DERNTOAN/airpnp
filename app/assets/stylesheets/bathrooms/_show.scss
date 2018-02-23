@@ -73,6 +73,11 @@ a {
       padding-right: 30px;
 
 
+    h2{
+      margin-top: 8px;
+      margin-bottom: 16px;
+    }
+
     }
 
     .uptag {
@@ -156,3 +161,18 @@ a {
 
 }
 
+
+.review-box{
+
+}
+
+.review-field{
+  display:flex;
+  border-bottom: 2px solid lightgrey;
+  padding: 8px 0px;
+
+
+  .review-avatar{
+    width: 70px;
+  }
+}

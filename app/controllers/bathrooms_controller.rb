@@ -10,10 +10,21 @@ class BathroomsController < ApplicationController
     if params[:bathroom]
 
       @bathroom = Bathroom.new(bathroom_params)
-      @bathrooms = @bathrooms.select do |bathroom|
-        filter(bathroom)
+      bathroom_params.each do |key, value|
+
+        if key == "price" && value != ""
+          @bathrooms = @bathrooms.where('price <= ?', "#{value}")
+        end
+        if key == "style" && value != "western"
+          @bathrooms = @bathrooms.where('style = ?', "#{value}")
+        end
+        if (%w(handicapped baby bidet).include? key) && value == "1"
+          @bathrooms = @bathrooms.where("#{key} = ?", true)
+        end
+
       end
     end
+
     @user_location = session[:user_coordinates]
     # @bathrooms = @bathrooms.near([@user_location["latitude"],@user_location["longitude"]], 0.5)
     @markers = @bathrooms.map do |bathroom|
@@ -37,7 +48,6 @@ class BathroomsController < ApplicationController
       icon: '/toilet-marker.png',
       draggable: false
         # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
-
       }]
     @user_location = session[:user_coordinates]
 
@@ -45,6 +55,9 @@ class BathroomsController < ApplicationController
     @booking = Booking.new
     @booking.user = current_user
     # authorize @booking
+
+
+    @last_reviews = Review.where("bathroom_id = #{@bathroom.id}").order(id: :desc).limit(3).reverse
     authorize @bathroom
   end
 
@@ -76,18 +89,6 @@ class BathroomsController < ApplicationController
   private
   def bathroom_params
     params.require(:bathroom).permit(:address , :plz, :city, :title, :description, :price, :photo, :photo_cache, :handicapped, :style, :toilet_paper, :wipes, :baby, :bidet, :user_id)
-  end
-
-  def filter(bathroom)
-    arr = []
-    bathroom_params.each do |key, value|
-        par = value == "" ? true : bathroom.price <= value.to_i if key == "price"
-        par = value == "0" ? true : bathroom[key] == (value == "1") if %w(handicapped baby bidet).include? key
-        par = value == "0" ? true : bathroom[key] == value.to_i if key == "wipes"
-        par = value == "western" ? true : bathroom.style == value if key == "style"
-        arr << par
-    end
-    arr.all?
   end
 
 end
