@@ -9,7 +9,7 @@
     </h1>
 
     <%= simple_form_for @bathroom, method: :get do |f| %>
-    <%= f.input :price  %>
+    <%= f.input :price, input_html: { placeholder: 'e.g. 150 Cents = 1,50 €' } %>
     <%= f.label :baby %>
 
     <%= f.input_field :baby, as: :boolean %>
